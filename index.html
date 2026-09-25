@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1B1916">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1B1916">
   <title>Aloka Green County | Luxury Residential Plots in Malur, East Bengaluru</title>
   <meta name="description"
     content="Aloka Green County — 2.5 Acres of MPA Approved, DC Converted residential plots in Malur near STRR, East Bengaluru. 100% infrastructure complete. Bank loans available.">
@@ -77,11 +79,69 @@
         </button>
       </div>
 
-      <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle menu">
+      <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER & BACKDROP OVERLAY
+       ========================================================================== -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">A</div>
+        <div class="brand-text">
+          <span class="brand-name">ALOKA GREEN COUNTY</span>
+          <span class="brand-tagline">BY ALOKA DEVELOPERS</span>
+        </div>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <!-- Quick Actions inside Hamburger Drawer -->
+      <div class="mobile-drawer-actions">
+        <a href="https://wa.me/919187969708?text=Hi%20Aloka%20Developers,%20I%20am%20interested%20in%20Aloka%20Green%20County%20plots."
+          target="_blank" rel="noopener" class="mobile-btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Instant Chat
+        </a>
+        <button class="mobile-btn-enquire trigger-lead-modal" data-title="Enquire Now" data-intent="enquiry">
+          <i class="fa-solid fa-paper-plane"></i> Enquire Now
+        </button>
+        <button class="mobile-btn-sitevisit trigger-lead-modal" data-title="Book Free Site Visit" data-intent="site-visit">
+          <i class="fa-solid fa-car"></i> Book Free Site Visit
+        </button>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="mobile-nav-links">
+        <a href="#overview" class="mobile-nav-item"><i class="fa-solid fa-house"></i> Project Overview</a>
+        <a href="#master-layout" class="mobile-nav-item"><i class="fa-solid fa-map"></i> Master Layout</a>
+        <a href="#amenities" class="mobile-nav-item"><i class="fa-solid fa-sparkles"></i> 16+ Amenities</a>
+        <a href="#connectivity" class="mobile-nav-item"><i class="fa-solid fa-location-dot"></i> Connectivity Orbit</a>
+        <a href="#plot-sizes" class="mobile-nav-item"><i class="fa-solid fa-ruler-combined"></i> Plot Sizes & Pricing</a>
+        <a href="#legal-shield" class="mobile-nav-item"><i class="fa-solid fa-shield-halved"></i> Legal Shield & Approvals</a>
+        <a href="#faq" class="mobile-nav-item"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</a>
+      </nav>
+
+      <!-- Quick Contact Info -->
+      <div class="mobile-drawer-contact">
+        <div class="drawer-contact-row">
+          <i class="fa-solid fa-phone gold-text"></i>
+          <a href="tel:+919187969708">+91 91879 69708</a>
+        </div>
+        <div class="drawer-contact-row">
+          <i class="fa-solid fa-location-dot gold-text"></i>
+          <span>Hoskote–Malur Road, Near STRR</span>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <!-- ==========================================================================
        3. HERO SECTION WITH IMAGE SLIDER & STICKY ENQUIRY FORM

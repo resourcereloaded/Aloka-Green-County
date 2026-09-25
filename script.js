@@ -4,9 +4,74 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initMobileNavDrawer();
   initLeadModalTriggers();
   initFaqAccordion();
 });
+
+/* --------------------------------------------------------------------------
+   1. MOBILE NAVIGATION DRAWER & TOGGLE ENGINE
+   -------------------------------------------------------------------------- */
+function initMobileNavDrawer() {
+  const toggleBtn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+
+  if (!toggleBtn || !drawer || !overlay) return;
+
+  function openDrawer() {
+    drawer.classList.add('active');
+    overlay.classList.add('active');
+    drawer.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    drawer.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (drawer.classList.contains('active')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
+  }
+
+  overlay.addEventListener('click', closeDrawer);
+
+  // Close when clicking any nav link or action button inside the drawer
+  const drawerLinks = drawer.querySelectorAll('.mobile-nav-item, .mobile-btn-sitevisit, .mobile-btn-enquire, .mobile-btn-whatsapp');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Small timeout so action/modal triggers cleanly before drawer slides away
+      setTimeout(closeDrawer, 150);
+    });
+  });
+
+  // Also close drawer on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDrawer();
+    }
+  });
+}
 
 /* --------------------------------------------------------------------------
    2. LEAD CAPTURE MODAL & TRIGGER LOGIC
