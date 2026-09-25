@@ -1,0 +1,22 @@
+# Environment & Secrets
+.env
+*.env.local
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE & Tool caches
+.gemini/
+.claude/
+.agent/
+.impeccable/
+*.log
+
+# Dependencies & Build
+node_modules/
+dist/
+build/
