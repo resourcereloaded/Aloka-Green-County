@@ -20,3 +20,9 @@ $RECYCLE.BIN/
 node_modules/
 dist/
 build/
+
+# Internal Project Drafts, Raw Copy & Unused Source Assets
+01_Projects/
+Temporary Files/
+.agents/
+

@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1B1916">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1B1916">
   <title>Aloka Green County | Luxury Residential Plots in Malur, East Bengaluru</title>
@@ -22,11 +23,53 @@
   <!-- FontAwesome / Lucide Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T9FCB66L');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK83T689BB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZK83T689BB');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2181509346114256');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2181509346114256&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Custom Design Tokens & Luxury Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.1">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9FCB66L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ==========================================================================
        1. TOP ANNOUNCEMENT BAR
@@ -48,11 +91,7 @@
     <div class="header-inner">
       <!-- Logo -->
       <a href="#" class="brand-logo" title="Aloka Green County">
-        <div class="brand-icon">A</div>
-        <div class="brand-text">
-          <span class="brand-name">ALOKA GREEN COUNTY</span>
-          <span class="brand-tagline">BY ALOKA DEVELOPERS</span>
-        </div>
+        <img src="images/logo.png" alt="Aloka Green County Logo" class="brand-logo-img">
       </a>
 
       <!-- Menu Links -->
@@ -79,7 +118,8 @@
         </button>
       </div>
 
-      <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+      <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="mobile-nav-drawer">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -92,11 +132,7 @@
   <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true">
     <div class="mobile-drawer-header">
       <div class="brand-logo">
-        <div class="brand-icon">A</div>
-        <div class="brand-text">
-          <span class="brand-name">ALOKA GREEN COUNTY</span>
-          <span class="brand-tagline">BY ALOKA DEVELOPERS</span>
-        </div>
+        <img src="images/logo.png" alt="Aloka Green County Logo" class="brand-logo-img">
       </div>
       <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
         <i class="fa-solid fa-xmark"></i>
@@ -113,7 +149,8 @@
         <button class="mobile-btn-enquire trigger-lead-modal" data-title="Enquire Now" data-intent="enquiry">
           <i class="fa-solid fa-paper-plane"></i> Enquire Now
         </button>
-        <button class="mobile-btn-sitevisit trigger-lead-modal" data-title="Book Free Site Visit" data-intent="site-visit">
+        <button class="mobile-btn-sitevisit trigger-lead-modal" data-title="Book Free Site Visit"
+          data-intent="site-visit">
           <i class="fa-solid fa-car"></i> Book Free Site Visit
         </button>
       </div>
@@ -124,9 +161,12 @@
         <a href="#master-layout" class="mobile-nav-item"><i class="fa-solid fa-map"></i> Master Layout</a>
         <a href="#amenities" class="mobile-nav-item"><i class="fa-solid fa-sparkles"></i> 16+ Amenities</a>
         <a href="#connectivity" class="mobile-nav-item"><i class="fa-solid fa-location-dot"></i> Connectivity Orbit</a>
-        <a href="#plot-sizes" class="mobile-nav-item"><i class="fa-solid fa-ruler-combined"></i> Plot Sizes & Pricing</a>
-        <a href="#legal-shield" class="mobile-nav-item"><i class="fa-solid fa-shield-halved"></i> Legal Shield & Approvals</a>
-        <a href="#faq" class="mobile-nav-item"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</a>
+        <a href="#plot-sizes" class="mobile-nav-item"><i class="fa-solid fa-ruler-combined"></i> Plot Sizes &
+          Pricing</a>
+        <a href="#legal-shield" class="mobile-nav-item"><i class="fa-solid fa-shield-halved"></i> Legal Shield &
+          Approvals</a>
+        <a href="#faq" class="mobile-nav-item"><i class="fa-solid fa-circle-question"></i> Frequently Asked
+          Questions</a>
       </nav>
 
       <!-- Quick Contact Info -->
@@ -148,7 +188,7 @@
        ========================================================================== -->
   <section class="hero" id="overview">
     <!-- Static Hero Background Image -->
-    <div class="hero-bg" style="background-image: url('./01_Projects/01_Aloka_Green_County/images/hero_villa.png');">
+    <div class="hero-bg" style="background-image: url('images/hero.png');">
     </div>
     <div class="hero-overlay"></div>
 
@@ -170,23 +210,19 @@
           <div class="hero-badges-grid">
             <div class="hero-badge-item">
               <div class="hero-badge-icon"><i class="fa-solid fa-building-columns"></i></div>
-              <div class="hero-badge-text">MPA Approved<br><small style="color:var(--color-text-muted);">Under BMRDA
-                  Guidelines</small></div>
+              <div class="hero-badge-text">MPA Approved<small>Under BMRDA Guidelines</small></div>
             </div>
             <div class="hero-badge-item">
-              <div class="hero-badge-icon"><i class="fa-solid fa-file-certificate"></i></div>
-              <div class="hero-badge-text">DC Converted<br><small style="color:var(--color-text-muted);">Clear A/E Khata
-                  Title</small></div>
+              <div class="hero-badge-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+              <div class="hero-badge-text">DC Converted<small>Clear A/E Khata Title</small></div>
             </div>
             <div class="hero-badge-item">
               <div class="hero-badge-icon"><i class="fa-solid fa-road"></i></div>
-              <div class="hero-badge-text">100% Infrastructure<br><small style="color:var(--color-text-muted);">Ready to
-                  Build Today</small></div>
+              <div class="hero-badge-text">100% Infrastructure<small>Ready to Build Today</small></div>
             </div>
             <div class="hero-badge-item">
               <div class="hero-badge-icon"><i class="fa-solid fa-landmark"></i></div>
-              <div class="hero-badge-text">Bank Loan Approved<br><small style="color:var(--color-text-muted);">Leading
-                  Financial Banks</small></div>
+              <div class="hero-badge-text">Bank Loan Approved<small>Leading Financial Banks</small></div>
             </div>
           </div>
 
@@ -197,9 +233,7 @@
               <i class="fa-solid fa-calendar-check"></i> SCHEDULE FREE SITE VISIT
             </button>
             <button class="btn-secondary trigger-lead-modal" data-title="Download Master Plan & Price Sheet"
-              data-intent="brochure"
-              data-file="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Brochure.pdf"
-              style="padding: 14px 28px; font-size: 15px;">
+              data-intent="brochure" data-file="collaterals/brochure.pdf" style="padding: 14px 28px; font-size: 15px;">
               <i class="fa-solid fa-file-pdf"></i> DOWNLOAD BROCHURE & PRICING
             </button>
           </div>
@@ -255,8 +289,8 @@
       <div class="gallery-grid">
         <!-- Card 1 -->
         <div class="gallery-card gallery-card-lg"
-          onclick="openLightbox('./01_Projects/01_Aloka_Green_County/images/ALC H1.webp', 'Grand Entrance Arch & Avenue')">
-          <img src="./01_Projects/01_Aloka_Green_County/images/ALC H1.webp" alt="Aloka Green County Entrance"
+          onclick="openLightbox('images/Aloka_Green_County_Entrance_202609051614.jpeg', 'Grand Entrance Arch & Avenue')">
+          <img src="images/Aloka_Green_County_Entrance_202609051614.jpeg" alt="Aloka Green County Entrance"
             class="gallery-img">
           <div class="gallery-card-overlay">
             <div>
@@ -269,9 +303,8 @@
 
         <!-- Card 2 -->
         <div class="gallery-card gallery-card-sm"
-          onclick="openLightbox('./01_Projects/01_Aloka_Green_County/images/ALC H2.webp', 'Wide 9-Meter Paved Roads')">
-          <img src="./01_Projects/01_Aloka_Green_County/images/ALC H2.webp" alt="Internal Asphalt Roads"
-            class="gallery-img">
+          onclick="openLightbox('images/roads.webp', 'Wide 9-Meter Paved Roads')">
+          <img src="images/roads.webp" alt="Internal Asphalt Roads" class="gallery-img">
           <div class="gallery-card-overlay">
             <div>
               <div class="gallery-card-tag">Road Network</div>
@@ -283,9 +316,8 @@
 
         <!-- Card 3 -->
         <div class="gallery-card gallery-card-half"
-          onclick="openLightbox('./01_Projects/01_Aloka_Green_County/images/ALC H3.webp', 'Underground Infrastructure & Utilities')">
-          <img src="./01_Projects/01_Aloka_Green_County/images/ALC H3.webp" alt="Underground Cabling & UGD"
-            class="gallery-img">
+          onclick="openLightbox('images/utilities.webp', 'Underground Infrastructure & Utilities')">
+          <img src="images/utilities.webp" alt="Underground Cabling & UGD" class="gallery-img">
           <div class="gallery-card-overlay">
             <div>
               <div class="gallery-card-tag">Utilities</div>
@@ -297,9 +329,8 @@
 
         <!-- Card 4 -->
         <div class="gallery-card gallery-card-half"
-          onclick="openLightbox('./01_Projects/01_Aloka_Green_County/images/AGC D1.webp', 'Landscaped Parks & Perimeter Wall')">
-          <img src="./01_Projects/01_Aloka_Green_County/images/AGC D1.webp" alt="Perimeter Compound Wall & Greenery"
-            class="gallery-img">
+          onclick="openLightbox('images/park.webp', 'Landscaped Parks & Perimeter Wall')">
+          <img src="images/park.webp" alt="Perimeter Compound Wall & Greenery" class="gallery-img">
           <div class="gallery-card-overlay">
             <div>
               <div class="gallery-card-tag">Landscaping</div>
@@ -350,33 +381,23 @@
             <div class="layout-feature-item"><span class="layout-feature-num">11.</span> Tree-Lined Avenue Walks</div>
             <div class="layout-feature-item"><span class="layout-feature-num">12.</span> Demarcated Corner Plots</div>
           </div>
-
-          <div style="margin-top:var(--space-8); display:flex; gap:var(--space-4); flex-wrap:wrap;">
-            <button class="btn-primary trigger-lead-modal" data-title="Download Master Layout Plan (PDF)"
-              data-intent="layout-plan"
-              data-file="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Layout Plan.pdf">
-              <i class="fa-solid fa-file-pdf"></i> Download High-Res Master Layout (PDF)
-            </button>
-            <button class="btn-secondary trigger-lead-modal" data-title="Check Corner Plot Availability"
-              data-intent="corner-plot">
-              <i class="fa-solid fa-map-location-dot"></i> Check Plot Availability
-            </button>
-          </div>
         </div>
 
         <!-- Right: Master Layout Interactive Preview Card -->
         <div class="layout-preview-box">
           <div class="layout-overlay-badge"><i class="fa-solid fa-map"></i> OFFICIAL SANCTIONED PLAN</div>
           <div class="layout-img-wrapper"
-            onclick="openLightbox('./01_Projects/01_Aloka_Green_County/images/ALC H1.webp', 'Official Master Layout Plan')">
-            <iframe src="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Layout Plan.pdf"
-              title="Master Layout PDF"
-              style="width:100%; height:450px; border:none; border-radius:var(--radius-md);"></iframe>
+            style="cursor: zoom-in; position: relative; background: #FFFFFF; border-radius: var(--radius-md); overflow: hidden; padding: 10px;"
+            onclick="openLightbox('images/Aloka Green County Layout Map.png', 'Aloka Green County - Official Master Layout Map')">
+            <img src="images/Aloka Green County Layout Map.png" alt="Aloka Green County Master Layout Map"
+              style="width: 100%; height: auto; max-height: 480px; object-fit: contain; display: block; border-radius: 6px;">
+            <div class="gallery-zoom-btn"
+              style="position: absolute; bottom: 18px; right: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"><i
+                class="fa-solid fa-expand"></i></div>
           </div>
           <div class="layout-actions-bar">
             <button class="btn-primary style-full trigger-lead-modal" style="width:100%;"
-              data-title="Download Layout Plan" data-intent="layout-plan"
-              data-file="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Layout Plan.pdf">
+              data-title="Download Layout Plan" data-intent="layout-plan" data-file="collaterals/layout-plan.pdf">
               <i class="fa-solid fa-download"></i> CLICK TO DOWNLOAD FULL LAYOUT PDF
             </button>
           </div>
@@ -437,7 +458,7 @@
         </div>
 
         <div class="amenity-card">
-          <div class="amenity-icon"><i class="fa-solid fa-pipes-water"></i></div>
+          <div class="amenity-icon"><i class="fa-solid fa-water"></i></div>
           <h3 class="amenity-title">UGD Drainage</h3>
           <p class="amenity-desc">Underground sewage & drainage network connected to STPs.</p>
         </div>
@@ -762,6 +783,167 @@
   </section>
 
   <!-- ==========================================================================
+       9.5 PLOT LOAN & EMI CALCULATOR
+       ========================================================================== -->
+  <section class="emi-calc-section" id="emi-calculator">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow"><i class="fa-solid fa-calculator" style="color:var(--color-2); margin-right:6px;"></i> FINANCIAL PLANNING</div>
+        <h2 class="section-title" style="color:var(--color-3);">Plot Loan & Monthly EMI Calculator</h2>
+        <p style="color:#C6BEAE;">
+          Estimate your monthly investment and plan your plot ownership seamlessly. Pre-approved bank loan facilities up to <strong>75%–80%</strong> available from leading national banks.
+        </p>
+      </div>
+
+      <div class="emi-calc-card">
+        <!-- Left Side: Controls & Sliders -->
+        <div class="emi-calc-controls">
+          <!-- Plot Size Presets -->
+          <div class="calc-group">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label class="calc-label">Select Plot Size Preset</label>
+              <span style="font-size:11px; color:var(--color-2); font-weight:700; background:rgba(198,166,104,0.15); padding:2px 8px; border-radius:4px;">₹3,050 / sq. ft.</span>
+            </div>
+            <div class="calc-presets-grid">
+              <button type="button" class="calc-preset-btn active" onclick="setEmiPreset(3660000, this)">
+                <span class="preset-name">30 × 40</span>
+                <span class="preset-sub">1,200 sq.ft. (₹36.6 L)</span>
+              </button>
+              <button type="button" class="calc-preset-btn" onclick="setEmiPreset(4117500, this)">
+                <span class="preset-name">30 × 45</span>
+                <span class="preset-sub">1,350 sq.ft. (₹41.1 L)</span>
+              </button>
+              <button type="button" class="calc-preset-btn" onclick="setEmiPreset(4575000, this)">
+                <span class="preset-name">30 × 50</span>
+                <span class="preset-sub">1,500 sq.ft. (₹45.7 L)</span>
+              </button>
+              <button type="button" class="calc-preset-btn" onclick="setEmiPreset(5490000, this)">
+                <span class="preset-name">Corner Plot</span>
+                <span class="preset-sub">1,800 sq.ft. (₹54.9 L)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Total Plot Cost Slider -->
+          <div class="calc-group">
+            <div class="calc-group-header">
+              <label class="calc-label" for="calc-plot-cost">Estimated Plot Value (@ ₹3,050/sq.ft)</label>
+              <div class="calc-val-display" id="calc-plot-cost-txt">₹36,60,000</div>
+            </div>
+            <input type="range" class="calc-slider" id="calc-plot-cost" min="2500000" max="7500000" step="25000" value="3660000" oninput="updateEmiCalculation()">
+            <div class="calc-range-labels">
+              <span>₹25 Lakhs</span>
+              <span>₹75 Lakhs</span>
+            </div>
+          </div>
+
+          <!-- Down Payment Percentage Slider -->
+          <div class="calc-group">
+            <div class="calc-group-header">
+              <label class="calc-label" for="calc-down-payment">Down Payment (Own Contribution)</label>
+              <div class="calc-val-display">
+                <span id="calc-down-percent-txt">20%</span>
+                <span class="calc-val-sub" id="calc-down-amount-txt">(₹4,80,000)</span>
+              </div>
+            </div>
+            <input type="range" class="calc-slider" id="calc-down-payment" min="10" max="50" step="5" value="20" oninput="updateEmiCalculation()">
+            <div class="calc-range-labels">
+              <span>10% (Min)</span>
+              <span>50%</span>
+            </div>
+          </div>
+
+          <!-- Two Column: Interest Rate & Tenure -->
+          <div class="calc-row-2col">
+            <!-- Interest Rate -->
+            <div class="calc-group">
+              <div class="calc-group-header">
+                <label class="calc-label" for="calc-interest-rate">Interest Rate (% p.a.)</label>
+                <div class="calc-val-display" id="calc-interest-txt">8.5%</div>
+              </div>
+              <input type="range" class="calc-slider" id="calc-interest-rate" min="7.0" max="12.0" step="0.1" value="8.5" oninput="updateEmiCalculation()">
+              <div class="calc-range-labels">
+                <span>7.0%</span>
+                <span>12.0%</span>
+              </div>
+            </div>
+
+            <!-- Loan Tenure -->
+            <div class="calc-group">
+              <div class="calc-group-header">
+                <label class="calc-label" for="calc-tenure-years">Loan Tenure (Years)</label>
+                <div class="calc-val-display" id="calc-tenure-txt">15 Years</div>
+              </div>
+              <input type="range" class="calc-slider" id="calc-tenure-years" min="5" max="25" step="1" value="15" oninput="updateEmiCalculation()">
+              <div class="calc-range-labels">
+                <span>5 Yrs</span>
+                <span>25 Yrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: EMI Summary & Bank Assistance -->
+        <div class="emi-calc-result-box">
+          <div class="result-header">
+            <span class="result-eyebrow">ESTIMATED MONTHLY PAYMENT</span>
+            <div class="result-emi-amount">
+              <span class="result-currency">₹</span>
+              <span id="result-monthly-emi">18,908</span>
+              <span class="result-per-month">/ month*</span>
+            </div>
+          </div>
+
+          <!-- Breakdown Metrics -->
+          <div class="result-breakdown-list">
+            <div class="breakdown-item">
+              <span class="breakdown-label"><i class="fa-solid fa-circle" style="color:var(--color-2); font-size:10px; margin-right:8px;"></i> Loan Principal Amount</span>
+              <span class="breakdown-value" id="result-principal-val">₹19,20,000</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><i class="fa-solid fa-circle" style="color:#D4AF37; font-size:10px; margin-right:8px;"></i> Total Interest Payable</span>
+              <span class="breakdown-value" id="result-interest-val">₹14,83,391</span>
+            </div>
+            <div class="breakdown-item total-row">
+              <span class="breakdown-label">Total Repayment Amount</span>
+              <span class="breakdown-value gold-text" id="result-total-payment">₹34,03,391</span>
+            </div>
+          </div>
+
+          <!-- Visual Proportion Bar -->
+          <div class="calc-visual-bar-wrap">
+            <div class="calc-visual-bar">
+              <div class="bar-principal" id="bar-principal" style="width: 56%;" title="Principal Portion"></div>
+              <div class="bar-interest" id="bar-interest" style="width: 44%;" title="Interest Portion"></div>
+            </div>
+            <div class="bar-legend">
+              <span><span class="legend-dot" style="background:var(--color-2);"></span> Principal (<span id="legend-principal-percent">56%</span>)</span>
+              <span><span class="legend-dot" style="background:#4A433A;"></span> Interest (<span id="legend-interest-percent">44%</span>)</span>
+            </div>
+          </div>
+
+          <!-- Bank Logos & Trust Strip -->
+          <div class="calc-bank-strip">
+            <div class="bank-strip-title"><i class="fa-solid fa-building-columns gold-text"></i> Pre-Approved Loan Partners</div>
+            <div class="bank-pill-row">
+              <span class="bank-pill">State Bank of India</span>
+              <span class="bank-pill">HDFC Bank</span>
+              <span class="bank-pill">ICICI Bank</span>
+              <span class="bank-pill">Axis Bank</span>
+            </div>
+          </div>
+
+          <!-- Action CTA -->
+          <button class="form-submit-btn trigger-lead-modal" data-title="Check Bank Loan Eligibility" data-intent="loan-assistance" style="margin-top: 20px;">
+            <i class="fa-solid fa-file-invoice-dollar"></i> CHECK LOAN ELIGIBILITY & BEST OFFERS
+          </button>
+          <p class="calc-disclaimer">*Indicative calculation. Exact loan terms & interest rates subject to individual credit assessment and bank norms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        10. THE 4-PILLAR LEGAL SHIELD
        ========================================================================== -->
   <section class="legal-section" id="legal-shield">
@@ -860,7 +1042,7 @@
         </div>
 
         <div style="text-align:center;">
-          <img src="./01_Projects/01_Aloka_Green_County/images/AGC D1.webp" alt="Aloka Developers Quality"
+          <img src="images/Aloka_Logo.png" alt="Aloka Developers logo"
             style="border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); border:1px solid var(--color-2);">
         </div>
       </div>
@@ -957,8 +1139,7 @@
           <i class="fa-brands fa-whatsapp"></i> CONNECT ON WHATSAPP
         </a>
         <button class="btn-secondary trigger-lead-modal" data-title="Download Project Brochure (PDF)"
-          data-intent="brochure"
-          data-file="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Brochure.pdf">
+          data-intent="brochure" data-file="collaterals/brochure.pdf">
           <i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD BROCHURE (PDF)
         </button>
       </div>
@@ -973,11 +1154,7 @@
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom:var(--space-4);">
-            <div class="brand-icon">A</div>
-            <div class="brand-text">
-              <span class="brand-name">ALOKA GREEN COUNTY</span>
-              <span class="brand-tagline">BY ALOKA DEVELOPERS</span>
-            </div>
+            <img src="images/logo.png" alt="Aloka Green County Logo" class="brand-logo-img" style="border-radius: 4px;">
           </div>
           <p style="font-size:var(--text-xs); color:#8E887E; line-height:1.6; margin-bottom:var(--space-4);">
             Clear Land. Honest Living. Aloka Green County is a 2.5-acre MPA Approved residential plotted community in
@@ -1027,71 +1204,114 @@
        15. POP-UP LEAD CAPTURE MODAL
        ========================================================================== -->
   <div class="modal-backdrop" id="lead-modal" aria-hidden="true">
-    <div class="modal-card">
+    <div class="modal-card modal-card-with-img">
       <button class="modal-close-btn" onclick="closeLeadModal()" aria-label="Close modal">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Form State -->
-      <div id="modal-form-state">
-        <div class="modal-header">
-          <h3 class="modal-title" id="modal-dynamic-title">Download Official Brochure</h3>
-          <p class="modal-subtitle" id="modal-dynamic-subtitle">Please enter your details to receive instant access &
-            PDF download.</p>
+      <!-- Left Column: Entrance Image Showcase -->
+      <div class="modal-img-col">
+        <img src="images/entrance.jpeg" alt="Aloka Green County Grand Entrance" class="modal-cover-img">
+        <div class="modal-img-overlay">
+          <div class="modal-img-badge">
+            <i class="fa-solid fa-crown"></i> EXCLUSIVE RESIDENTIAL PLOTS
+          </div>
+          <div class="modal-img-content">
+            <h4 class="modal-img-title">Aloka Green County</h4>
+            <p class="modal-img-sub">Malur, Near STRR • East Bengaluru</p>
+            <div class="modal-img-highlights">
+              <span><i class="fa-solid fa-circle-check"></i> MPA Approved Layout (under BMRDA)</span>
+              <span><i class="fa-solid fa-circle-check"></i> 100% Ready-to-Build Infrastructure</span>
+              <span><i class="fa-solid fa-circle-check"></i> Bank Loan Approved by SBI / HDFC</span>
+            </div>
+          </div>
         </div>
-
-        <form id="modal-lead-form" onsubmit="handleLeadSubmit(event, 'Modal Form')">
-          <input type="hidden" id="modal-intent-input" name="intent" value="brochure">
-          <input type="hidden" id="modal-file-input" name="file_path" value="">
-
-          <div class="form-group">
-            <label class="form-label">Full Name*</label>
-            <input type="text" class="form-input" placeholder="Enter your full name" required name="name">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Phone Number (WhatsApp)*</label>
-            <input type="tel" class="form-input" placeholder="+91 98765 43210" required name="phone"
-              pattern="[0-9+ ]{10,15}">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" class="form-input" placeholder="Enter your email" name="email">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Preferred Plot Size</label>
-            <select class="form-select" name="plot_size">
-              <option value="30x40">30 × 40 (1,200 sq. ft.)</option>
-              <option value="30x45">30 × 45 (1,350 sq. ft.)</option>
-              <option value="30x50">30 × 50 (1,500 sq. ft.)</option>
-              <option value="corner">Corner Plot (1,500+ sq. ft.)</option>
-            </select>
-          </div>
-
-          <button type="submit" class="form-submit-btn">
-            <i class="fa-solid fa-download"></i> SUBMIT & ACCESS PDF NOW
-          </button>
-        </form>
       </div>
 
-      <!-- Success State -->
-      <div class="modal-success-state" id="modal-success-state">
-        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-        <h3
-          style="font-family:var(--font-heading); font-size:28px; color:var(--color-2); margin-bottom:var(--space-2);">
-          Thank You!</h3>
-        <p style="color:#C6BEAE; margin-bottom:var(--space-6);" id="success-message-text">Your request has been
-          received. Your PDF file download has started automatically.</p>
+      <!-- Right Column: Form Container -->
+      <div class="modal-form-col">
+        <!-- Form State -->
+        <div id="modal-form-state">
+          <div class="modal-header">
+            <h3 class="modal-title" id="modal-dynamic-title">Download Official Brochure</h3>
+            <p class="modal-subtitle" id="modal-dynamic-subtitle">Please enter your details to receive instant access &
+              PDF download.</p>
+          </div>
 
-        <div style="display:flex; flex-direction:column; gap:var(--space-3);">
-          <a id="success-whatsapp-link"
-            href="https://wa.me/919187969708?text=Hi%20Aloka%20Developers,%20I%20just%20submitted%20my%20enquiry."
-            target="_blank" class="btn-whatsapp" style="justify-content:center; padding:12px;">
-            <i class="fa-brands fa-whatsapp"></i> Chat with Senior Executive on WhatsApp
-          </a>
-          <button class="btn-secondary" onclick="closeLeadModal()">Close Window</button>
+          <form id="modal-lead-form" onsubmit="handleLeadSubmit(event, 'Modal Form')">
+            <input type="hidden" id="modal-intent-input" name="intent" value="brochure">
+            <input type="hidden" id="modal-file-input" name="file_path" value="">
+
+            <div class="form-group">
+              <label class="form-label">Full Name*</label>
+              <input type="text" class="form-input" placeholder="Enter your full name" required name="name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phone Number (WhatsApp)*</label>
+              <input type="tel" class="form-input" placeholder="+91 98765 43210" required name="phone"
+                pattern="[0-9+ ]{10,15}">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="Enter your email" name="email">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Plot Size</label>
+              <select class="form-select" name="plot_size">
+                <option value="30x40">30 × 40 (1,200 sq. ft.)</option>
+                <option value="30x45">30 × 45 (1,350 sq. ft.)</option>
+                <option value="30x50">30 × 50 (1,500 sq. ft.)</option>
+                <option value="corner">Corner Plot (1,500+ sq. ft.)</option>
+              </select>
+            </div>
+
+            <!-- Anti-Spam Security Verification -->
+            <div class="form-group">
+              <label class="form-label">Security Verification*</label>
+              <div class="captcha-box">
+                <div class="captcha-badge" id="modal-captcha-badge">
+                  <i class="fa-solid fa-shield-halved" style="color:var(--color-2); margin-right:6px;"></i>
+                  <span id="modal-captcha-question">5 + 3 = ?</span>
+                </div>
+                <button type="button" class="captcha-reload-btn" onclick="initCaptcha()" title="Change question" aria-label="Refresh Captcha">
+                  <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <input type="number" class="form-input captcha-input" id="modal-captcha-input" placeholder="Your Answer" required min="0" max="99">
+              </div>
+              <div class="captcha-alert" id="modal-captcha-alert" style="display:none;">
+                <i class="fa-solid fa-circle-exclamation"></i> Incorrect answer. Please solve the calculation to proceed.
+              </div>
+            </div>
+
+            <!-- Hidden Honeypot to Trap Automated Spambots -->
+            <input type="text" name="b_trap_security" class="honeypot-input" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
+
+            <button type="submit" class="form-submit-btn">
+              <i class="fa-solid fa-download"></i> SUBMIT & ACCESS PDF NOW
+            </button>
+          </form>
+        </div>
+
+        <!-- Success State -->
+        <div class="modal-success-state" id="modal-success-state">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h3
+            style="font-family:var(--font-heading); font-size:28px; color:var(--color-2); margin-bottom:var(--space-2);">
+            Thank You!</h3>
+          <p style="color:#C6BEAE; margin-bottom:var(--space-6);" id="success-message-text">Your request has been
+            received. Your PDF file download has started automatically.</p>
+
+          <div style="display:flex; flex-direction:column; gap:var(--space-3);">
+            <a id="success-whatsapp-link"
+              href="https://wa.me/919187969708?text=Hi%20Aloka%20Developers,%20I%20just%20submitted%20my%20enquiry."
+              target="_blank" class="btn-whatsapp" style="justify-content:center; padding:12px;">
+              <i class="fa-brands fa-whatsapp"></i> Chat with Senior Executive on WhatsApp
+            </a>
+            <button class="btn-secondary" onclick="closeLeadModal()">Close Window</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1115,8 +1335,7 @@
       <i class="fa-solid fa-calendar-day gold-text"></i> Site Visit
     </button>
     <button class="btn-primary trigger-lead-modal" style="padding: 6px 14px; font-size: 12px;"
-      data-title="Download Brochure" data-intent="brochure"
-      data-file="./01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Brochure.pdf">
+      data-title="Download Brochure" data-intent="brochure" data-file="collaterals/brochure.pdf">
       <i class="fa-solid fa-download"></i> Brochure
     </button>
   </div>
@@ -1128,7 +1347,7 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.1"></script>
 </body>
 
 </html>

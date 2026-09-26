@@ -4,10 +4,48 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initStickyHeader();
   initMobileNavDrawer();
   initLeadModalTriggers();
   initFaqAccordion();
+  initConversionClickTracking();
+  initCaptcha();
+  updateEmiCalculation();
 });
+
+let currentCaptchaSum = 0;
+
+function initCaptcha() {
+  const questionEl = document.getElementById('modal-captcha-question');
+  const inputEl = document.getElementById('modal-captcha-input');
+  const alertEl = document.getElementById('modal-captcha-alert');
+
+  if (!questionEl) return;
+
+  const num1 = Math.floor(Math.random() * 8) + 2; // 2 to 9
+  const num2 = Math.floor(Math.random() * 8) + 1; // 1 to 8
+  currentCaptchaSum = num1 + num2;
+
+  questionEl.textContent = `${num1} + ${num2} = ?`;
+  if (inputEl) inputEl.value = '';
+  if (alertEl) alertEl.style.display = 'none';
+}
+
+function initStickyHeader() {
+  const header = document.getElementById('main-header');
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+}
 
 /* --------------------------------------------------------------------------
    1. MOBILE NAVIGATION DRAWER & TOGGLE ENGINE
@@ -88,6 +126,49 @@ function initLeadModalTriggers() {
       openLeadModal(title, intent, filePath);
     });
   });
+
+  // Initialize Smart Auto-Trigger (Timer & Scroll)
+  initAutoPopup();
+}
+
+let autoPopupTriggered = false;
+
+function initAutoPopup() {
+  // Check if popup was already shown or dismissed in this session
+  if (sessionStorage.getItem('aloka_popup_shown') === 'true') {
+    return;
+  }
+
+  const triggerPopup = (reason = 'auto') => {
+    if (autoPopupTriggered || sessionStorage.getItem('aloka_popup_shown') === 'true') return;
+
+    const modal = document.getElementById('lead-modal');
+    if (modal && modal.classList.contains('active')) return;
+
+    autoPopupTriggered = true;
+    sessionStorage.setItem('aloka_popup_shown', 'true');
+    openLeadModal('Exclusive VIP Offer & Brochure', 'vip-offer', 'collaterals/brochure.pdf');
+  };
+
+  // 1. Time-based trigger: Display after 7 seconds
+  const autoTimer = setTimeout(() => {
+    triggerPopup('timer');
+  }, 7000);
+
+  // 2. Scroll-based trigger: Display when visitor scrolls past 25% of the page
+  const handleScrollPopup = () => {
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollTotal > 0) {
+      const scrollPercent = (window.scrollY / scrollTotal) * 100;
+      if (scrollPercent >= 25) {
+        window.removeEventListener('scroll', handleScrollPopup);
+        clearTimeout(autoTimer);
+        triggerPopup('scroll');
+      }
+    }
+  };
+
+  window.addEventListener('scroll', handleScrollPopup, { passive: true });
 }
 
 function openLeadModal(title, intent, filePath = '') {
@@ -99,6 +180,10 @@ function openLeadModal(title, intent, filePath = '') {
 
   const formState = document.getElementById('modal-form-state');
   const successState = document.getElementById('modal-success-state');
+
+  // Mark as shown so auto timer doesn't fire again
+  autoPopupTriggered = true;
+  sessionStorage.setItem('aloka_popup_shown', 'true');
 
   // Reset states
   formState.style.display = 'block';
@@ -120,6 +205,9 @@ function openLeadModal(title, intent, filePath = '') {
   } else if (intent.includes('price')) {
     titleEl.textContent = 'Get Complete Cost Sheet & Plot Pricing';
     subtitleEl.textContent = 'Receive plot price matrix, payment schedule & government charges break-up.';
+  } else if (intent === 'vip-offer') {
+    titleEl.textContent = 'Unlock Exclusive VIP Launch Pricing';
+    subtitleEl.textContent = 'Enter your details to receive instant brochure download & limited-period price benefits.';
   } else {
     titleEl.textContent = title;
     subtitleEl.textContent = 'Enter your contact info for an instant response from developer team.';
@@ -127,6 +215,9 @@ function openLeadModal(title, intent, filePath = '') {
 
   intentInput.value = intent;
   fileInput.value = filePath;
+
+  // Refresh captcha every time modal is opened
+  initCaptcha();
 
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
@@ -138,6 +229,8 @@ function closeLeadModal() {
   modal.classList.remove('active');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  // Set session flag on close
+  sessionStorage.setItem('aloka_popup_shown', 'true');
 }
 
 // Close modal on escape key
@@ -155,6 +248,27 @@ function handleLeadSubmit(event, source = 'Form') {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
+
+  // 1. Anti-Bot Honeypot Trap (Silently stops automated bots)
+  const trapField = formData.get('b_trap_security');
+  if (trapField) {
+    console.warn('Automated bot submission prevented.');
+    return;
+  }
+
+  // 2. Interactive Math Security Challenge Validation
+  const captchaInput = document.getElementById('modal-captcha-input');
+  const captchaAlert = document.getElementById('modal-captcha-alert');
+  if (captchaInput) {
+    const userAnswer = parseInt(captchaInput.value.trim(), 10);
+    if (isNaN(userAnswer) || userAnswer !== currentCaptchaSum) {
+      if (captchaAlert) captchaAlert.style.display = 'flex';
+      captchaInput.focus();
+      initCaptcha();
+      return;
+    }
+    if (captchaAlert) captchaAlert.style.display = 'none';
+  }
 
   const name = formData.get('name') || '';
   const phone = formData.get('phone') || '';
@@ -179,6 +293,56 @@ function handleLeadSubmit(event, source = 'Form') {
   existingLeads.push(leadObj);
   localStorage.setItem('aloka_leads', JSON.stringify(existingLeads));
 
+  // --- 1. Send Lead to Google Sheet (Primary Integration) ---
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwAcMvdocc23oCn_gHv9v5U_M8vs-mV0RtEaZm-2RRM-PAIMCsCi07mCppL2ANJ080x/exec';
+
+  const sheetPayload = {
+    name: name,
+    phone: phone,
+    email: email || '',
+    plotSize: plotSize || 'Not Specified',
+    intent: intent,
+    source: source,
+    message: `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
+  };
+
+  try {
+    fetch(GOOGLE_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(sheetPayload)
+    }).then(() => {
+      console.log('Lead successfully recorded to Google Sheet');
+    }).catch(err => {
+      console.warn('Google Sheet sync notice:', err);
+    });
+  } catch (err) {
+    console.warn('Google Sheet post error:', err);
+  }
+
+  // --- 2. Background Sync to Laravel Admin Panel ---
+  try {
+    const postFormData = new FormData();
+    postFormData.append('name', name);
+    postFormData.append('phone', phone);
+    postFormData.append('email', email || 'enquiry@greencounty.alokadevelopers.com');
+    postFormData.append('interest', intent === 'site-visit' ? 'Site Visit' : 'Pricing & Brochure');
+    postFormData.append('message', `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`);
+
+    fetch('https://alokadevelopers.com/api/landing-enquiry', {
+      method: 'POST',
+      body: postFormData,
+      mode: 'cors'
+    }).catch(() => {
+      // Ignore background errors
+    });
+  } catch (err) {
+    // Ignore background errors
+  }
+
   console.log('New Lead Captured:', leadObj);
 
   // Trigger File Download if requested
@@ -191,14 +355,14 @@ function handleLeadSubmit(event, source = 'Form') {
     document.body.removeChild(link);
   } else if (intent === 'brochure') {
     const link = document.createElement('a');
-    link.href = './01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Brochure.pdf';
+    link.href = 'collaterals/brochure.pdf';
     link.download = 'Aloka Green County - Brochure.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   } else if (intent === 'layout-plan') {
     const link = document.createElement('a');
-    link.href = './01_Projects/01_Aloka_Green_County/collaterals/Aloka Green County - Layout Plan.pdf';
+    link.href = 'collaterals/layout-plan.pdf';
     link.download = 'Aloka Green County - Layout Plan.pdf';
     document.body.appendChild(link);
     link.click();
@@ -229,8 +393,38 @@ function handleLeadSubmit(event, source = 'Form') {
     }
   }
 
+  // --- Google Analytics 4 & Meta Pixel Lead Conversion Tracking ---
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead', {
+      event_category: 'Lead Form',
+      event_label: intent,
+      value: 1,
+      plot_size: plotSize,
+      lead_source: source
+    });
+  }
+
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: intent,
+      content_category: plotSize,
+      value: 1.00,
+      currency: 'INR'
+    });
+  }
+
   showToast(`Thank you ${name}! Enquiry submitted successfully.`);
   form.reset();
+
+  // Redirect to Dedicated Conversion Thank You Page
+  setTimeout(() => {
+    const thankYouParams = new URLSearchParams({
+      name: name,
+      intent: intent,
+      plot: plotSize
+    });
+    window.location.href = `thank-you.html?${thankYouParams.toString()}`;
+  }, 500);
 }
 
 /* --------------------------------------------------------------------------
@@ -301,4 +495,137 @@ function showToast(msg) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4000);
+}
+
+/* --------------------------------------------------------------------------
+   9. PLOT LOAN & EMI CALCULATOR ENGINE
+   -------------------------------------------------------------------------- */
+function formatINR(val) {
+  return new Intl.NumberFormat('en-IN', {
+    maximumFractionDigits: 0
+  }).format(Math.round(val));
+}
+
+function setEmiPreset(plotCost, btnEl) {
+  const plotCostSlider = document.getElementById('calc-plot-cost');
+  if (plotCostSlider) {
+    plotCostSlider.value = plotCost;
+  }
+
+  // Update active preset button style
+  document.querySelectorAll('.calc-preset-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+
+  updateEmiCalculation();
+}
+
+function updateEmiCalculation() {
+  const costSlider = document.getElementById('calc-plot-cost');
+  const downSlider = document.getElementById('calc-down-payment');
+  const rateSlider = document.getElementById('calc-interest-rate');
+  const tenureSlider = document.getElementById('calc-tenure-years');
+
+  if (!costSlider || !downSlider || !rateSlider || !tenureSlider) return;
+
+  const totalPlotCost = parseFloat(costSlider.value) || 3660000;
+  const downPaymentPercent = parseFloat(downSlider.value) || 20;
+  const interestRate = parseFloat(rateSlider.value) || 8.5;
+  const tenureYears = parseFloat(tenureSlider.value) || 15;
+
+  // Calculate Values
+  const downPaymentAmount = totalPlotCost * (downPaymentPercent / 100);
+  const principalAmount = totalPlotCost - downPaymentAmount;
+
+  // Monthly Interest Rate (r) and Total Months (n)
+  const monthlyRate = (interestRate / 12) / 100;
+  const totalMonths = tenureYears * 12;
+
+  // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
+  let monthlyEmi = 0;
+  if (monthlyRate > 0) {
+    monthlyEmi = (principalAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+  } else {
+    monthlyEmi = principalAmount / totalMonths;
+  }
+
+  const totalRepayment = monthlyEmi * totalMonths;
+  const totalInterest = totalRepayment - principalAmount;
+
+  // Percentages for Progress Bar
+  const principalPercent = totalRepayment > 0 ? Math.round((principalAmount / totalRepayment) * 100) : 50;
+  const interestPercent = 100 - principalPercent;
+
+  // Update DOM Displays
+  const costTxt = document.getElementById('calc-plot-cost-txt');
+  const downPercentTxt = document.getElementById('calc-down-percent-txt');
+  const downAmountTxt = document.getElementById('calc-down-amount-txt');
+  const interestTxt = document.getElementById('calc-interest-txt');
+  const tenureTxt = document.getElementById('calc-tenure-txt');
+
+  const resultEmi = document.getElementById('result-monthly-emi');
+  const resultPrincipal = document.getElementById('result-principal-val');
+  const resultInterest = document.getElementById('result-interest-val');
+  const resultTotal = document.getElementById('result-total-payment');
+
+  const barPrincipal = document.getElementById('bar-principal');
+  const barInterest = document.getElementById('bar-interest');
+  const legendPrincipal = document.getElementById('legend-principal-percent');
+  const legendInterest = document.getElementById('legend-interest-percent');
+
+  if (costTxt) costTxt.textContent = `₹${formatINR(totalPlotCost)}`;
+  if (downPercentTxt) downPercentTxt.textContent = `${downPaymentPercent}%`;
+  if (downAmountTxt) downAmountTxt.textContent = `(₹${formatINR(downPaymentAmount)})`;
+  if (interestTxt) interestTxt.textContent = `${interestRate.toFixed(1)}%`;
+  if (tenureTxt) tenureTxt.textContent = `${tenureYears} Years`;
+
+  if (resultEmi) resultEmi.textContent = formatINR(monthlyEmi);
+  if (resultPrincipal) resultPrincipal.textContent = `₹${formatINR(principalAmount)}`;
+  if (resultInterest) resultInterest.textContent = `₹${formatINR(totalInterest)}`;
+  if (resultTotal) resultTotal.textContent = `₹${formatINR(totalRepayment)}`;
+
+  if (barPrincipal) barPrincipal.style.width = `${principalPercent}%`;
+  if (barInterest) barInterest.style.width = `${interestPercent}%`;
+  if (legendPrincipal) legendPrincipal.textContent = `${principalPercent}%`;
+  if (legendInterest) legendInterest.textContent = `${interestPercent}%`;
+}
+
+/* --------------------------------------------------------------------------
+   10. CLICK CONVERSION TRACKING (WHATSAPP & PHONE CALLS)
+   -------------------------------------------------------------------------- */
+function initConversionClickTracking() {
+  // Track WhatsApp button & link clicks
+  document.querySelectorAll('a[href*="wa.me"], .btn-whatsapp, .mobile-btn-whatsapp').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact', {
+          event_category: 'Direct Contact',
+          event_label: 'WhatsApp Chat',
+          method: 'WhatsApp'
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          content_name: 'WhatsApp Click'
+        });
+      }
+    });
+  });
+
+  // Track Direct Phone Call clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact', {
+          event_category: 'Direct Contact',
+          event_label: 'Phone Call',
+          method: 'Phone'
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          content_name: 'Phone Call Click'
+        });
+      }
+    });
+  });
 }
