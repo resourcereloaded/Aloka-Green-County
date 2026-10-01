@@ -197,8 +197,8 @@ function openLeadModal(title, intent, filePath = '') {
     titleEl.textContent = 'Download Master Layout Plan (PDF)';
     subtitleEl.textContent = 'Get the full 43-plot high-resolution master layout map.';
   } else if (intent === 'site-visit') {
-    titleEl.textContent = 'Schedule Free Site Visit with Pick-up';
-    subtitleEl.textContent = 'Choose your preferred date and our team will arrange complimentary pick-up.';
+    titleEl.textContent = 'Schedule Site Visit';
+    subtitleEl.textContent = 'Enter your contact details to schedule your guided on-site visit.';
   } else if (intent === 'corner-plot') {
     titleEl.textContent = 'Check Corner Plot Availability';
     subtitleEl.textContent = 'Corner plots are limited! Drop your contact details for instant status.';
@@ -273,7 +273,7 @@ function handleLeadSubmit(event, source = 'Form') {
   const name = formData.get('name') || '';
   const phone = formData.get('phone') || '';
   const email = formData.get('email') || '';
-  const plotSize = formData.get('plot_size') || '30x40';
+  const plotSize = formData.get('plot_size') || '';
   const intent = formData.get('intent') || 'enquiry';
   const filePath = formData.get('file_path') || '';
 
@@ -283,7 +283,7 @@ function handleLeadSubmit(event, source = 'Form') {
     name,
     phone,
     email,
-    plotSize,
+    plotSize: plotSize || 'Not Specified',
     intent,
     source,
     timestamp: new Date().toISOString()
@@ -303,7 +303,9 @@ function handleLeadSubmit(event, source = 'Form') {
     plotSize: plotSize || 'Not Specified',
     intent: intent,
     source: source,
-    message: `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
+    message: plotSize
+      ? `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
+      : `Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
   };
 
   try {
@@ -330,7 +332,9 @@ function handleLeadSubmit(event, source = 'Form') {
     postFormData.append('phone', phone);
     postFormData.append('email', email || 'enquiry@greencounty.alokadevelopers.com');
     postFormData.append('interest', intent === 'site-visit' ? 'Site Visit' : 'Pricing & Brochure');
-    postFormData.append('message', `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`);
+    postFormData.append('message', plotSize
+      ? `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
+      : `Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`);
 
     fetch('https://alokadevelopers.com/api/landing-enquiry', {
       method: 'POST',
@@ -395,22 +399,24 @@ function handleLeadSubmit(event, source = 'Form') {
 
   // --- Google Analytics 4 & Meta Pixel Lead Conversion Tracking ---
   if (typeof gtag === 'function') {
-    gtag('event', 'generate_lead', {
+    const gtagPayload = {
       event_category: 'Lead Form',
       event_label: intent,
       value: 1,
-      plot_size: plotSize,
       lead_source: source
-    });
+    };
+    if (plotSize) gtagPayload.plot_size = plotSize;
+    gtag('event', 'generate_lead', gtagPayload);
   }
 
   if (typeof fbq === 'function') {
-    fbq('track', 'Lead', {
+    const fbqPayload = {
       content_name: intent,
-      content_category: plotSize,
       value: 1.00,
       currency: 'INR'
-    });
+    };
+    if (plotSize) fbqPayload.content_category = plotSize;
+    fbq('track', 'Lead', fbqPayload);
   }
 
   showToast(`Thank you ${name}! Enquiry submitted successfully.`);
@@ -420,9 +426,9 @@ function handleLeadSubmit(event, source = 'Form') {
   setTimeout(() => {
     const thankYouParams = new URLSearchParams({
       name: name,
-      intent: intent,
-      plot: plotSize
+      intent: intent
     });
+    if (plotSize) thankYouParams.set('plot', plotSize);
     window.location.href = `thank-you.html?${thankYouParams.toString()}`;
   }, 500);
 }

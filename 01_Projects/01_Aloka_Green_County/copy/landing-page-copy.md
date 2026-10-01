@@ -36,7 +36,7 @@ SECTION 2: HERO SECTION
 # A Complete Connected Living Experience.  
 ## Where Everything You Need Surrounds the Home You Build.
 
-### 2.5 Acres of Fully Developed Residential Plotted Community in Malur, Just 2 KM from the Satellite Town Ring Road (STRR).
+### 2.5 Acres of Fully Developed Residential Plotted Community in Arsanahalli, Close to STRR (Near Whitefield Exit).
 
 ---
 
@@ -154,8 +154,7 @@ At **Aloka Green County**, convenience is woven into your everyday lifestyle. Pr
 - 📍 **Government Hospital, Lakkur** — *~ 10 Mins*
 - 📍 **Vinayaka Multi-Speciality Hospital** — *~ 12 Mins*
 - 📍 **AYUSH Hospital** — *~ 12 Mins*
-- 📍 **Malur ESI Hospital & Spoorthy Hospital** — *~ 14 Mins*
-- 📍 **Manipal Hospital & Aster Hospital (Whitefield / Hoskote)** — *~ 35 Mins*
+- 📍 **Vydehi Hospital & Manipal Hospital (Whitefield)** — *~ 30–35 Mins*
 
 ---
 
@@ -171,7 +170,7 @@ At **Aloka Green County**, convenience is woven into your everyday lifestyle. Pr
 
 ### 4. 🏢 Work Hubs & Industrial Zones
 
-- 📍 **KIADB Malur Industrial & Manufacturing Area** — *~ 10 Mins*
+- 📍 **East Bengaluru Industrial Hub** — *~ 10 Mins*
 - 📍 **Bearys Global Business Triangle** — *~ 20 Mins*
 - 📍 **Hoskote Industrial & Logistics Corridor** — *~ 15 Mins*
 - 📍 **ITPL Tech Park & EPIP Zone (Whitefield)** — *~ 40 Mins*
@@ -182,7 +181,7 @@ At **Aloka Green County**, convenience is woven into your everyday lifestyle. Pr
 ### 5. 🚗 Highways & Transit Connectivity
 
 - 📍 **Satellite Town Ring Road (STRR)** — *2 KM (~ 3 Mins)*
-- 📍 **Malur Town & Railway Station** — *~ 10 Mins*
+- 📍 **Devanagonthi Railway Station** — *~ 10 Mins*
 - 📍 **Hoskote Town** — *~ 15 Mins*
 - 📍 **Old Madras Road (NH-75)** — *~ 20 Mins*
 - 📍 **Budigere Cross Junction** — *~ 25 Mins*
@@ -194,7 +193,7 @@ At **Aloka Green County**, convenience is woven into your everyday lifestyle. Pr
 ### 6. 🕉️ Peaceful Retreats & Heritage
 
 - 📍 **Chikkathirupathi Sri Venkateshwara Temple** — *~ 12 Mins*
-- 📍 **ISKCON Malur** — *~ 10 Mins*
+- 📍 **Sri Prasanna Someshwara Temple** — *~ 10 Mins*
 - 📍 **Sri Shaneswaraswamy Temple** — *~ 10 Mins*
 - 📍 **Arasanahalli & Mariswami Temples** — *~ 5 Mins*
 
@@ -259,11 +258,11 @@ SECTION 8: ABOUT ALOKA DEVELOPERS
 ## Built by Aloka Developers  
 ### *Clear Land. Honest Living.*
 
-Aloka Developers Private Limited is dedicated to making residential land ownership in East Bengaluru clear, dependable, and transparent. With an established multi-project footprint across Malur and Hoskote, we prioritize on-ground execution, verified government sanctions, and complete post-sale registration assistance.
+Aloka Developers Private Limited is dedicated to making residential land ownership in East Bengaluru clear, dependable, and transparent. With an established multi-project footprint across East Bengaluru and Hoskote, we prioritize on-ground execution, verified government sanctions, and complete post-sale registration assistance.
 
 - **Completed Ground Execution:** Infrastructure built first, ensuring zero delay.
 - **End-to-End Assistance:** Comprehensive guidance from document verification to Sub-Registrar registration.
-- **Trusted Corridor Presence:** Multiple established layouts across the Malur–Hoskote belt.
+- **Trusted Corridor Presence:** Multiple established layouts across the East Bengaluru — Whitefield & STRR belt.
 
 ---
 
@@ -274,7 +273,7 @@ SECTION 9: FREQUENTLY ASKED QUESTIONS (FAQ)
 ```
 
 **Q1: Where exactly is Aloka Green County located?**  
-Aloka Green County is located in Arasanahalli, Malur, on the high-growth East Bengaluru corridor, just 2 KM from the Satellite Town Ring Road (STRR) and within easy reach of Hoskote and Whitefield.
+Aloka Green County is located in Arsanahalli, East Bengaluru, close to the Satellite Town Ring Road (STRR / NH-948A) and near the STRR-Whitefield Exit and Devanagonthi. It offers rapid, seamless connectivity to Whitefield IT corridors (ITPL), Hoskote, and Budigere Cross.
 
 **Q2: What approvals does the project have?**  
 The layout is MPA Approved (under BMRDA guidelines), fully DC Converted for residential use, and comes with clear A/E Khata documentation.
@@ -306,7 +305,7 @@ SECTION 10: CLOSING CALL-TO-ACTION & FOOTER
 
 ### [Footer]
 - **Developer:** Aloka Developers Private Limited
-- **Site Address:** Aloka Green County, Arasanahalli, Malur, Karnataka.
+- **Site Address:** Aloka Green County, Arsanahalli, Near STRR-Whitefield Exit, East Bengaluru.
 - **Corporate Office:** No. 6, Sy. No. 2 & 3, Kammasandra Village, Bidarahalli Hobli, Bangalore East Taluk, Bengaluru - 560049.
 - **Phone:** +91 91879 69708 / +91 91879 69709 | **Email:** info@alokadevelopers.com
 - **Disclaimer:** All visual representations, master layout graphics, and distances are indicative and subject to regional planning guidelines. Terms & conditions apply.

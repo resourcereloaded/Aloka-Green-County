@@ -1,17 +1,17 @@
-# Aloka Green County --- Malur
+# Aloka Green County --- Near Whitefield & STRR
 
 ## Project Brochure
 
 **Developer:** Aloka Developers Private Limited\
 **Project:** Aloka Green County\
-**Location:** Malur, Arasanahalli, Hoskote, East Bengaluru
+**Location:** Arsanahalli, Close to STRR (Near Whitefield Exit), East Bengaluru
 
 ------------------------------------------------------------------------
 
 ## 1. Project Overview
 
-Aloka Green County is a legally clear residential layout in Malur,
-Arasanahalli, on East Bengaluru's fastest-growing stretch near STRR.
+Aloka Green County is a legally clear residential layout in
+Arsanahalli, on East Bengaluru's fastest-growing stretch near STRR & Whitefield corridor.
 
 The project offers **43 well-planned plots** spanning **2.5 acres** of
 legally clear land.
@@ -86,20 +86,20 @@ The brochure also visually shows project infrastructure including:
 
 ## 4. Location & Connectivity
 
-Aloka Green County is positioned in **Malur, Arasanahalli, Hoskote, East
-Bengaluru**, near the **STRR**.
+Aloka Green County is positioned in **Arsanahalli, Near STRR-Whitefield Exit,
+East Bengaluru**, close to the **STRR**.
 
 ### Key Connectivity
 
   Location                             Approx. Travel Time / Distance
   ---------------------------------- --------------------------------
-  STRR                                                           2 KM
-  Malur Town                                                  10 mins
+  STRR (NH-948A)                                                 2 KM
+  Devanagonthi Railway Station                                10 mins
   Hoskote Town                                                15 mins
   Old Madras Road (NH-75)                                     20 mins
   Budigere Cross                                              25 mins
   KR Puram                                                    30 mins
-  Whitefield                                                  40 mins
+  Whitefield (ITPL / EPIP)                               20 - 25 mins
   Kempegowda International Airport                            60 mins
 
 The brochure describes the project as strategically located with
@@ -125,7 +125,7 @@ The brochure groups nearby facilities into five categories.
 -   Government Hospital, Lakkur
 -   Vinayaka Hospital
 -   AYUSH Hospital
--   Malur ESI Hospital
+-   Vydehi Hospital (Whitefield)
 -   Spoorthy Hospital
 
 ### Shopping & Daily Needs
@@ -139,7 +139,7 @@ The brochure groups nearby facilities into five categories.
 
 ### IT & Employment Hubs
 
--   KIADB Malur Industrial Area
+-   East Bengaluru Industrial Hub
 -   Bearys Global Business Triangle
 -   ITPL Techpark
 -   EPIP Zone
@@ -153,7 +153,7 @@ The brochure groups nearby facilities into five categories.
 -   Arasanahalli Temple
 -   Sri Hanuman Temple
 -   Sri Shaneswaraswamy Temple
--   ISKCON Malur
+-   Sri Prasanna Someshwara Temple
 
 ------------------------------------------------------------------------
 
@@ -216,8 +216,8 @@ areas, landscaped spaces, lighting, and security infrastructure.
 
 ### Connectivity
 
-The project is positioned near STRR and connected to Malur, Hoskote,
-Whitefield, KR Puram, Budigere Cross, Old Madras Road, and Kempegowda
+The project is positioned near STRR and connected to Whitefield, Hoskote,
+Devanagonthi, KR Puram, Budigere Cross, Old Madras Road, and Kempegowda
 International Airport.
 
 ### Future Ownership
@@ -235,7 +235,7 @@ The brochure positions the property for both:
 
 **ALOKA GREEN COUNTY**
 
-**Near STRR, Malur, East Bengaluru**
+**Near STRR & Whitefield Exit, East Bengaluru**
 
 ### Supporting Credentials
 
@@ -300,7 +300,7 @@ Features:
 
 -   Aloka Developers Private Limited branding.
 -   Aloka Green County project name.
--   Location: Near STRR, Malur, East Bengaluru.
+-   Location: Arsanahalli, Near STRR-Whitefield Exit, East Bengaluru.
 -   MPA Approved.
 -   DC Converted.
 -   A/E Khata.
@@ -311,7 +311,7 @@ Features:
 
 Covers:
 
--   Malur, Arasanahalli location.
+-   Arsanahalli, Near STRR location.
 -   East Bengaluru positioning.
 -   Near STRR.
 -   43 plots.
@@ -355,7 +355,7 @@ Covers:
 -   Hoskote Town --- 15 mins.
 -   Budigere Cross --- 25 mins.
 -   Kempegowda International Airport --- 60 mins.
--   Malur Town --- 10 mins.
+-   Devanagonthi Railway Station --- 10 mins.
 -   Old Madras Road (NH-75) --- 20 mins.
 -   KR Puram --- 30 mins.
 -   Nearby education, healthcare, shopping, employment hubs, and
@@ -395,7 +395,7 @@ Covers:
 ## 13. Source Accuracy Note
 
 This Markdown document is a structured conversion of the uploaded
-**Aloka Green County --- Malur** brochure.
+**Aloka Green County --- Near Whitefield & STRR** brochure.
 
 Project-specific information above is based on the brochure's text and
 visual pages. Where the brochure uses marketing language such as
