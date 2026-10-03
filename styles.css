@@ -2704,7 +2704,7 @@ h4 { font-size: var(--text-xl); }
 .map-embed-badge {
   position: absolute;
   top: 16px;
-  left: 16px;
+  right: 16px;
   background: rgba(27, 25, 22, 0.92);
   color: var(--color-2);
   backdrop-filter: blur(8px);
@@ -2719,6 +2719,7 @@ h4 { font-size: var(--text-xl); }
   z-index: 2;
   border: 1px solid rgba(198, 166, 104, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
 }
 
 .map-iframe {
