@@ -208,6 +208,9 @@ function openLeadModal(title, intent, filePath = '') {
   } else if (intent === 'vip-offer') {
     titleEl.textContent = 'Unlock Exclusive VIP Launch Pricing';
     subtitleEl.textContent = 'Enter your details to receive instant brochure download & limited-period price benefits.';
+  } else if (intent === 'loan-assistance' || intent.includes('loan')) {
+    titleEl.textContent = 'Check Bank Loan Eligibility';
+    subtitleEl.textContent = 'Pre-approved residential plot loans up to 80% available from HDFC, ICICI, IDBI & BOB.';
   } else {
     titleEl.textContent = title;
     subtitleEl.textContent = 'Enter your contact info for an instant response from developer team.';
@@ -274,6 +277,7 @@ function handleLeadSubmit(event, source = 'Form') {
   const phone = formData.get('phone') || '';
   const email = formData.get('email') || '';
   const plotSize = formData.get('plot_size') || '';
+  const loanPreference = formData.get('loan_preference') || '';
   const intent = formData.get('intent') || 'enquiry';
   const filePath = formData.get('file_path') || '';
 
@@ -284,6 +288,7 @@ function handleLeadSubmit(event, source = 'Form') {
     phone,
     email,
     plotSize: plotSize || 'Not Specified',
+    loanPreference: loanPreference || 'Not Specified',
     intent,
     source,
     timestamp: new Date().toISOString()
@@ -296,16 +301,19 @@ function handleLeadSubmit(event, source = 'Form') {
   // --- 1. Send Lead to Google Sheet (Primary Integration) ---
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwAcMvdocc23oCn_gHv9v5U_M8vs-mV0RtEaZm-2RRM-PAIMCsCi07mCppL2ANJ080x/exec';
 
+  let leadMessage = `Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`;
+  if (plotSize) leadMessage += ` | Preferred Plot: ${plotSize}`;
+  if (loanPreference) leadMessage += ` | Bank Loan: ${loanPreference}`;
+
   const sheetPayload = {
     name: name,
     phone: phone,
     email: email || '',
     plotSize: plotSize || 'Not Specified',
+    loanPreference: loanPreference || 'Not Specified',
     intent: intent,
     source: source,
-    message: plotSize
-      ? `Preferred Plot: ${plotSize} | Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
-      : `Intent: ${intent} | Source: greencounty.alokadevelopers.com (${source})`
+    message: leadMessage
   };
 
   try {

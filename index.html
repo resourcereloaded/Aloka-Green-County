@@ -230,7 +230,7 @@
             </div>
             <div class="hero-badge-item">
               <div class="hero-badge-icon"><i class="fa-solid fa-landmark"></i></div>
-              <div class="hero-badge-text">Bank Loan Approved<small>Leading Financial Banks</small></div>
+              <div class="hero-badge-text">Bank Loan Approved<small>HDFC, ICICI, IDBI & BOB</small></div>
             </div>
           </div>
 
@@ -1033,10 +1033,10 @@
           <div class="calc-bank-strip">
             <div class="bank-strip-title"><i class="fa-solid fa-building-columns gold-text"></i> Pre-Approved Loan Partners</div>
             <div class="bank-pill-row">
-              <span class="bank-pill">State Bank of India</span>
               <span class="bank-pill">HDFC Bank</span>
               <span class="bank-pill">ICICI Bank</span>
-              <span class="bank-pill">Axis Bank</span>
+              <span class="bank-pill">IDBI Bank</span>
+              <span class="bank-pill">Bank of Baroda (BOB)</span>
             </div>
           </div>
 
@@ -1086,7 +1086,7 @@
         <div class="legal-card">
           <div class="legal-icon"><i class="fa-solid fa-building-columns"></i></div>
           <h3 class="legal-title">4. Bank Approved</h3>
-          <p class="legal-desc">Vetted & pre-approved for residential plot purchase loans by top leading banks.</p>
+          <p class="legal-desc">Vetted & pre-approved for residential plot purchase loans by HDFC, ICICI, IDBI & BOB.</p>
         </div>
       </div>
 
@@ -1207,8 +1207,7 @@
             <i class="fa-solid fa-chevron-down faq-icon"></i>
           </button>
           <div class="faq-answer">
-            Yes. The project documentation is verified and pre-approved for residential plot loans by leading financial
-            institutions and major banks.
+            Yes. The project documentation is verified and pre-approved for residential plot loans up to 80% by top leading banks including <strong>HDFC Bank</strong>, <strong>ICICI Bank</strong>, <strong>IDBI Bank</strong>, and <strong>Bank of Baroda (BOB)</strong>.
           </div>
         </div>
 
@@ -1328,7 +1327,7 @@
             <div class="modal-img-highlights">
               <span><i class="fa-solid fa-circle-check"></i> MPA Approved Layout (under BMRDA)</span>
               <span><i class="fa-solid fa-circle-check"></i> 100% Ready-to-Build Infrastructure</span>
-              <span><i class="fa-solid fa-circle-check"></i> Bank Loan Approved by SBI / HDFC</span>
+              <span><i class="fa-solid fa-circle-check"></i> Bank Loan Approved by HDFC, ICICI, IDBI & BOB</span>
             </div>
           </div>
         </div>
@@ -1342,6 +1341,23 @@
             <h3 class="modal-title" id="modal-dynamic-title">Download Official Brochure</h3>
             <p class="modal-subtitle" id="modal-dynamic-subtitle">Please enter your details to receive instant access &
               PDF download.</p>
+          </div>
+
+          <!-- Pre-Approved Bank Loan Trust Bar in Enquiry Form -->
+          <div class="modal-bank-approval-card">
+            <div class="modal-bank-header">
+              <div class="modal-bank-header-left">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Bank Loan Approved By</span>
+              </div>
+              <span class="modal-bank-badge-pill">Up to 80% Loan</span>
+            </div>
+            <div class="modal-bank-list">
+              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> HDFC Bank</span>
+              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> ICICI Bank</span>
+              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> IDBI Bank</span>
+              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> BOB (Bank of Baroda)</span>
+            </div>
           </div>
 
           <form id="modal-lead-form" onsubmit="handleLeadSubmit(event, 'Modal Form')">
@@ -1362,6 +1378,19 @@
             <div class="form-group">
               <label class="form-label">Email Address</label>
               <input type="email" class="form-input" placeholder="Enter your email" name="email">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Bank Loan Preference (Optional)</label>
+              <select class="form-select" name="loan_preference">
+                <option value="">Select Bank Loan Preference (Optional)</option>
+                <option value="HDFC Bank Loan">HDFC Bank (Pre-Approved)</option>
+                <option value="ICICI Bank Loan">ICICI Bank (Pre-Approved)</option>
+                <option value="IDBI Bank Loan">IDBI Bank (Pre-Approved)</option>
+                <option value="BOB Loan">Bank of Baroda - BOB (Pre-Approved)</option>
+                <option value="Best Available Bank Loan">Best Available Loan Offer (Up to 80%)</option>
+                <option value="Self Funded / No Loan">Self-Funded / No Loan Needed</option>
+              </select>
             </div>
 
 
