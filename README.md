@@ -1,3 +1,8 @@
+<div align="center">
+
+  <!-- Header Image / Banner -->
+  <img src="images/AGC_Logo_White.jpeg" alt="Aloka Green County" width="320px" style="border-radius: 80%; margin-bottom: 15px; box-shadow: 0 8px 24px rgba(135, 80, 247, 0.3);" />
+
 # Aloka Green County — Luxury Villa Plots
 
 > Premium BMRDA Approved Residential Villa Plots located in Arsanahalli, close to STRR (Near Whitefield Exit), East Bengaluru.
