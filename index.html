@@ -119,7 +119,7 @@
   <!-- End Meta Pixel Code -->
 
   <!-- Custom Design Tokens & Luxury Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=4.6">
+  <link rel="stylesheet" href="styles.css?v=4.7">
 </head>
 
 <body>
@@ -1620,23 +1620,6 @@
               PDF download.</p>
           </div>
 
-          <!-- Pre-Approved Bank Loan Trust Bar in Enquiry Form -->
-          <div class="modal-bank-approval-card">
-            <div class="modal-bank-header">
-              <div class="modal-bank-header-left">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Bank Loan Approved By</span>
-              </div>
-              <span class="modal-bank-badge-pill">Up to 80% Loan</span>
-            </div>
-            <div class="modal-bank-list">
-              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> HDFC Bank</span>
-              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> ICICI Bank</span>
-              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> IDBI Bank</span>
-              <span class="modal-bank-chip"><i class="fa-solid fa-circle-check"></i> BOB (Bank of Baroda)</span>
-            </div>
-          </div>
-
           <form id="modal-lead-form" onsubmit="handleLeadSubmit(event, 'Modal Form')">
             <input type="hidden" id="modal-intent-input" name="intent" value="brochure">
             <input type="hidden" id="modal-file-input" name="file_path" value="">
@@ -1656,20 +1639,6 @@
             <div class="form-group">
               <label class="form-label">Email Address <span class="form-optional-tag">(Optional)</span></label>
               <input type="email" class="form-input" placeholder="name@example.com" name="email">
-            </div>
-
-            <!-- Optional Bank Loan Preference -->
-            <div class="form-group">
-              <label class="form-label">Bank Loan Preference <span class="form-optional-tag">(Optional)</span></label>
-              <select class="form-select" name="loan_preference">
-                <option value="">Select Bank Loan Preference (Optional)</option>
-                <option value="HDFC Bank Loan">HDFC Bank (Pre-Approved)</option>
-                <option value="ICICI Bank Loan">ICICI Bank (Pre-Approved)</option>
-                <option value="IDBI Bank Loan">IDBI Bank (Pre-Approved)</option>
-                <option value="BOB Loan">Bank of Baroda - BOB (Pre-Approved)</option>
-                <option value="Best Available Bank Loan">Best Available Loan Offer (Up to 80%)</option>
-                <option value="Self Funded / No Loan">Self-Funded / No Loan Needed</option>
-              </select>
             </div>
 
             <!-- Hidden Honeypot to Trap Automated Spambots (Zero-Friction Protection) -->
