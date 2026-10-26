@@ -147,28 +147,41 @@ function initAutoPopup() {
 
     autoPopupTriggered = true;
     sessionStorage.setItem('aloka_popup_shown', 'true');
-    openLeadModal('Exclusive VIP Offer & Brochure', 'vip-offer', 'collaterals/brochure.pdf');
+    console.log(`Auto popup triggered via: ${reason}`);
+    openLeadModal('Exclusive VIP Offer & Complete Price Sheet', 'vip-offer', 'collaterals/brochure.pdf');
   };
 
-  // 1. Time-based trigger: Display after 7 seconds
+  // 1. Timed Trigger: 45 seconds after session start if no CTA clicked
   const autoTimer = setTimeout(() => {
-    triggerPopup('timer');
-  }, 7000);
+    triggerPopup('timer_45s');
+  }, 45000);
 
-  // 2. Scroll-based trigger: Display when visitor scrolls past 25% of the page
+  // 2. Scroll-Triggered Popup: After 60% scroll depth (mobile & desktop)
   const handleScrollPopup = () => {
     const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
     if (scrollTotal > 0) {
       const scrollPercent = (window.scrollY / scrollTotal) * 100;
-      if (scrollPercent >= 25) {
+      if (scrollPercent >= 60) {
         window.removeEventListener('scroll', handleScrollPopup);
         clearTimeout(autoTimer);
-        triggerPopup('scroll');
+        triggerPopup('scroll_60%');
       }
     }
   };
-
   window.addEventListener('scroll', handleScrollPopup, { passive: true });
+
+  // 3. Desktop Exit-Intent Trigger: mouse leaves top of viewport (minimum 3s dwell time)
+  const pageLoadedAt = Date.now();
+  const handleExitIntent = (e) => {
+    if (Date.now() - pageLoadedAt < 3000) return;
+    if (navigator.webdriver) return;
+    if (e.clientY <= 15 && e.relatedTarget == null) {
+      document.removeEventListener('mouseleave', handleExitIntent);
+      clearTimeout(autoTimer);
+      triggerPopup('exit_intent');
+    }
+  };
+  document.addEventListener('mouseleave', handleExitIntent);
 }
 
 function openLeadModal(title, intent, filePath = '') {
@@ -181,13 +194,13 @@ function openLeadModal(title, intent, filePath = '') {
   const formState = document.getElementById('modal-form-state');
   const successState = document.getElementById('modal-success-state');
 
-  // Mark as shown so auto timer doesn't fire again
+  // Mark as shown so auto triggers don't fire again
   autoPopupTriggered = true;
   sessionStorage.setItem('aloka_popup_shown', 'true');
 
   // Reset states
-  formState.style.display = 'block';
-  successState.style.display = 'none';
+  if (formState) formState.style.display = 'block';
+  if (successState) successState.style.display = 'none';
 
   // Customize modal copy based on intent
   if (intent === 'brochure') {
@@ -198,7 +211,7 @@ function openLeadModal(title, intent, filePath = '') {
     subtitleEl.textContent = 'Get the full 43-plot high-resolution master layout map.';
   } else if (intent === 'site-visit') {
     titleEl.textContent = 'Schedule Site Visit';
-    subtitleEl.textContent = 'Enter your contact details to schedule your guided on-site visit.';
+    subtitleEl.textContent = 'Enter your contact details to schedule your guided on-site visit with free cab pickup.';
   } else if (intent === 'corner-plot') {
     titleEl.textContent = 'Check Corner Plot Availability';
     subtitleEl.textContent = 'Corner plots are limited! Drop your contact details for instant status.';
@@ -213,11 +226,8 @@ function openLeadModal(title, intent, filePath = '') {
     subtitleEl.textContent = 'Enter your contact info for an instant response from developer team.';
   }
 
-  intentInput.value = intent;
-  fileInput.value = filePath;
-
-  // Refresh captcha every time modal is opened
-  initCaptcha();
+  if (intentInput) intentInput.value = intent;
+  if (fileInput) fileInput.value = filePath;
 
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
@@ -226,11 +236,23 @@ function openLeadModal(title, intent, filePath = '') {
 
 function closeLeadModal() {
   const modal = document.getElementById('lead-modal');
-  modal.classList.remove('active');
-  modal.setAttribute('aria-hidden', 'true');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  }
   document.body.style.overflow = '';
   // Set session flag on close
   sessionStorage.setItem('aloka_popup_shown', 'true');
+}
+
+// Close modal when clicking on the backdrop
+const leadModalContainer = document.getElementById('lead-modal');
+if (leadModalContainer) {
+  leadModalContainer.addEventListener('click', (e) => {
+    if (e.target === leadModalContainer) {
+      closeLeadModal();
+    }
+  });
 }
 
 // Close modal on escape key
@@ -254,20 +276,6 @@ function handleLeadSubmit(event, source = 'Form') {
   if (trapField) {
     console.warn('Automated bot submission prevented.');
     return;
-  }
-
-  // 2. Interactive Math Security Challenge Validation
-  const captchaInput = document.getElementById('modal-captcha-input');
-  const captchaAlert = document.getElementById('modal-captcha-alert');
-  if (captchaInput) {
-    const userAnswer = parseInt(captchaInput.value.trim(), 10);
-    if (isNaN(userAnswer) || userAnswer !== currentCaptchaSum) {
-      if (captchaAlert) captchaAlert.style.display = 'flex';
-      captchaInput.focus();
-      initCaptcha();
-      return;
-    }
-    if (captchaAlert) captchaAlert.style.display = 'none';
   }
 
   const name = formData.get('name') || '';
@@ -397,8 +405,32 @@ function handleLeadSubmit(event, source = 'Form') {
     }
   }
 
-  // --- Google Analytics 4 & Meta Pixel Lead Conversion Tracking ---
+  // --- Google Analytics 4, GTM & Meta Pixel Lead Conversion Tracking (Audit Issue 9 Fix) ---
+  // 1. Google Tag Manager DataLayer push (fires both form_submit and generate_lead)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'form_submit',
+      form_id: form.id || 'modal-lead-form',
+      intent: intent,
+      lead_source: source
+    });
+    window.dataLayer.push({
+      event: 'generate_lead',
+      intent: intent,
+      value: 1,
+      lead_source: source,
+      plot_size: plotSize || 'Not Specified'
+    });
+  }
+
+  // 2. Direct Google Analytics 4 Tag (fires both events to prevent tracking gap)
   if (typeof gtag === 'function') {
+    gtag('event', 'form_submit', {
+      event_category: 'Lead Form',
+      event_label: intent,
+      lead_source: source
+    });
+
     const gtagPayload = {
       event_category: 'Lead Form',
       event_label: intent,
@@ -409,6 +441,7 @@ function handleLeadSubmit(event, source = 'Form') {
     gtag('event', 'generate_lead', gtagPayload);
   }
 
+  // 3. Meta Pixel Track Lead Event
   if (typeof fbq === 'function') {
     const fbqPayload = {
       content_name: intent,
@@ -422,7 +455,7 @@ function handleLeadSubmit(event, source = 'Form') {
   showToast(`Thank you ${name}! Enquiry submitted successfully.`);
   form.reset();
 
-  // Redirect to Dedicated Conversion Thank You Page
+  // Redirect to Dedicated Conversion Thank You Page with slight delay for network transmission
   setTimeout(() => {
     const thankYouParams = new URLSearchParams({
       name: name,
@@ -430,7 +463,7 @@ function handleLeadSubmit(event, source = 'Form') {
     });
     if (plotSize) thankYouParams.set('plot', plotSize);
     window.location.href = `thank-you.html?${thankYouParams.toString()}`;
-  }, 500);
+  }, 650);
 }
 
 /* --------------------------------------------------------------------------
@@ -596,42 +629,75 @@ function updateEmiCalculation() {
 }
 
 /* --------------------------------------------------------------------------
-   10. CLICK CONVERSION TRACKING (WHATSAPP & PHONE CALLS)
+   10. CLICK CONVERSION TRACKING (WHATSAPP & PHONE CALLS — ISSUE 7 FIX)
    -------------------------------------------------------------------------- */
 function initConversionClickTracking() {
   // Track WhatsApp button & link clicks
-  document.querySelectorAll('a[href*="wa.me"], .btn-whatsapp, .mobile-btn-whatsapp').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
+  document.querySelectorAll('a[href*="wa.me"], .btn-whatsapp, .mobile-btn-whatsapp').forEach(link => {
+    link.addEventListener('click', function() {
+      const sectionId = this.closest('section')?.id || 'header_or_floating';
+
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', {
+          content_name: 'WhatsApp Click',
+          content_category: sectionId
+        });
+      }
+
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+          event_category: 'engagement',
+          event_label: sectionId,
+          method: 'WhatsApp'
+        });
         gtag('event', 'contact', {
           event_category: 'Direct Contact',
           event_label: 'WhatsApp Chat',
           method: 'WhatsApp'
         });
       }
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', {
-          content_name: 'WhatsApp Click'
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'whatsapp_click',
+          click_location: sectionId
         });
       }
     });
   });
 
   // Track Direct Phone Call clicks
-  document.querySelectorAll('a[href^="tel:"]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', function() {
+      const sectionId = this.closest('section')?.id || 'header_or_floating';
+
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', {
+          content_name: 'Phone Call Click',
+          content_category: sectionId
+        });
+      }
+
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call_click', {
+          event_category: 'engagement',
+          event_label: sectionId,
+          method: 'Phone'
+        });
         gtag('event', 'contact', {
           event_category: 'Direct Contact',
           event_label: 'Phone Call',
           method: 'Phone'
         });
       }
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', {
-          content_name: 'Phone Call Click'
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'phone_click',
+          click_location: sectionId
         });
       }
     });
   });
 }
+

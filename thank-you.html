@@ -52,6 +52,18 @@
       'event_label': 'Thank You Page View',
       'value': 1
     });
+
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'conversion',
+        value: 1.0,
+        currency: 'INR'
+      });
+      window.dataLayer.push({
+        event: 'generate_lead',
+        value: 1
+      });
+    }
   </script>
 
   <!-- Meta Pixel Code -->

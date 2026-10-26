@@ -9,9 +9,59 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1B1916">
   <title>Aloka Green County | Luxury Residential Plots near Whitefield & STRR, East Bengaluru</title>
   <meta name="description"
-    content="Aloka Green County — 2.5 Acres of Approved, DC Converted residential plots in Arsanahalli, close to STRR & near STRR-Whitefield Exit, East Bengaluru. 100% infrastructure complete. Bank loans available.">
+    content="Developed villa plots from ₹36.6 Lakhs near Whitefield & STRR, East Bengaluru. 100% infrastructure ready — roads, drainage, power & compound wall. Bank pre-approved. Book a free site visit today.">
   <meta name="keywords"
     content="Aloka Green County, Aloka Developers, plots near Whitefield, STRR plots, residential plots East Bengaluru, Devanagonthi plots, Arsanahalli plots, BMRDA plots">
+
+  <!-- Structured Data: FAQ Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where exactly is Aloka Green County located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aloka Green County is located in Arsanahalli, East Bengaluru, close to the Satellite Town Ring Road (STRR / NH-948A) and near the STRR-Whitefield Exit and Devanagonthi. It offers rapid, seamless connectivity to Whitefield IT corridors (ITPL), Hoskote, and Budigere Cross."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What approvals does the layout have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The layout is MPA Approved (under BMRDA guidelines), fully DC Converted for residential use, and comes with clear individual A/E Khata documentation with zero encumbrance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the infrastructure ready for immediate home construction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All core physical infrastructure — including 9-meter wide asphalt roads, underground electricity conduits, UGD sewage lines, water connection pipes, compound walls, street lights, and green parks — is 100% completed on the ground."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I avail a bank loan for purchasing a plot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The project documentation is verified and pre-approved for residential plot loans up to 80% by leading financial institutions and major banks like SBI and HDFC."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I schedule a site visit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can schedule a site visit directly by clicking any 'Site Visit' button, or by calling +91 91879 69708 or messaging us on WhatsApp. We also provide complimentary weekend cab pick-up from 6 key hubs including Hope Farm, Kadugodi Metro, and Hoskote."
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Favicon & Mobile Touch Icons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -69,7 +119,7 @@
   <!-- End Meta Pixel Code -->
 
   <!-- Custom Design Tokens & Luxury Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3.4">
+  <link rel="stylesheet" href="styles.css?v=4.6">
 </head>
 
 <body>
@@ -193,67 +243,116 @@
   </aside>
 
   <!-- ==========================================================================
-       3. HERO SECTION WITH IMAGE SLIDER & STICKY ENQUIRY FORM
+       3. HERO SECTION (MINIMAL LIGHT THEME • GRAND ENTRANCE ARCH)
        ========================================================================== -->
-  <section class="hero" id="overview">
-    <!-- Static Hero Background Image -->
-    <div class="hero-bg" style="background-image: url('images/hero.png');">
+  <section class="hero hero-light" id="overview">
+    <!-- Hero Background Architecture Stage (1920x1080 Full Canvas • Hero V1) -->
+    <div class="hero-bg-stage">
+      <picture>
+        <source srcset="images/hero-v1.webp" type="image/webp">
+        <img src="images/hero-v1.png" alt="Aloka Green County Grand Entrance Arch" class="hero-bg-stage-img" width="1920" height="1080" fetchpriority="high" loading="eager">
+      </picture>
+      <div class="hero-stage-bottom-fade"></div>
     </div>
-    <div class="hero-overlay"></div>
 
-    <div class="container">
-      <div class="hero-content-grid">
-        <!-- Aspirational Left-Aligned Text Block -->
-        <div class="hero-text-block">
-          <div class="eyebrow">EAST BENGALURU’S PREMIER PLOTTED ENCLAVE</div>
-          <h1 class="hero-title">
-            ALOKA GREEN COUNTY
-          </h1>
-          <p class="hero-subtitle">
-            Experience serene, luxury living in Arsanahalli, close to STRR & near the STRR-Whitefield Exit. 2.5 Acres of Approved, DC-Converted
-            residential plots with 100% completed infrastructure, wide asphalt avenues, and rapid access to Whitefield IT corridors.
-          </p>
-
-          <!-- Highlights Grid -->
-          <div class="hero-badges-grid">
-            <div class="hero-badge-item">
-              <div class="hero-badge-icon"><i class="fa-solid fa-building-columns"></i></div>
-              <div class="hero-badge-text">MPA Approved<small>Under BMRDA Guidelines</small></div>
-            </div>
-            <div class="hero-badge-item">
-              <div class="hero-badge-icon"><i class="fa-solid fa-file-circle-check"></i></div>
-              <div class="hero-badge-text">DC Converted<small>Clear A/E Khata Title</small></div>
-            </div>
-            <div class="hero-badge-item">
-              <div class="hero-badge-icon"><i class="fa-solid fa-road"></i></div>
-              <div class="hero-badge-text">100% Infrastructure<small>Ready to Build Today</small></div>
-            </div>
-            <div class="hero-badge-item">
-              <div class="hero-badge-icon"><i class="fa-solid fa-landmark"></i></div>
-              <div class="hero-badge-text">Bank Loan Approved<small>Leading Financial Banks</small></div>
-            </div>
+    <!-- Upper Content Zone: Split Layout (Left: Title, Subtitle, CTA | Right: Approval Snippets) -->
+    <div class="hero-light-content">
+      <div class="hero-container-split">
+        <!-- Left Column: Headline, Subheadline, CTA -->
+        <div class="hero-light-left">
+          <!-- Trust Eyebrow -->
+          <div class="hero-light-pill">
+            <span class="hero-pill-dot"></span>
+            <span>STRR CORRIDOR • EAST BENGALURU</span>
           </div>
 
-          <!-- Hero Action CTAs (Triggers Popup Lead Modal) -->
-          <div class="hero-cta-group">
-            <button class="btn-primary trigger-lead-modal" data-title="Schedule Site Visit"
-              data-intent="site-visit" style="padding: 14px 28px; font-size: 15px;">
-              <i class="fa-solid fa-calendar-check"></i> SCHEDULE SITE VISIT
+          <!-- Left-Aligned Hero Headline -->
+          <h1 class="hero-light-title">
+            Premium Villa plots from<br class="hero-br-mobile"> <span class="hero-price-gold">₹36.6 Lakhs*</span> Near Whitefield
+          </h1>
+
+          <!-- Left-Aligned Subheadline -->
+          <p class="hero-light-subtitle">
+            Experience serene, luxury living in Arsanahalli, close to STRR &amp; near the STRR-Whitefield Exit. 2.5 Acres of Approved, DC-Converted residential plots with 100% completed infrastructure &amp; rapid Whitefield connectivity.
+          </p>
+
+          <!-- Left-Aligned CTA Row -->
+          <div class="hero-light-cta-box">
+            <button class="btn-hero-minimal trigger-lead-modal" data-title="Download Master Plan & Price Sheet" data-intent="brochure" data-file="collaterals/brochure.pdf">
+              <span class="btn-hero-text">Download Brochure</span>
+              <span class="btn-hero-icon"><i class="fa-solid fa-arrow-down"></i></span>
             </button>
-            <button class="btn-secondary trigger-lead-modal" data-title="Download Master Plan & Price Sheet"
-              data-intent="brochure" data-file="collaterals/brochure.pdf" style="padding: 14px 28px; font-size: 15px;">
-              <i class="fa-solid fa-file-pdf"></i> DOWNLOAD BROCHURE & PRICING
-            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Approval & Trust Snippets -->
+        <div class="hero-light-right">
+          <div class="hero-snippets-grid">
+            <!-- Snippet 1: MPA Approved -->
+            <div class="hero-snippet-card">
+              <div class="snippet-icon-wrap">
+                <i class="fa-solid fa-stamp"></i>
+              </div>
+              <div class="snippet-content">
+                <span class="snippet-badge">GOVT APPROVED</span>
+                <span class="snippet-title">MPA Approved</span>
+                <span class="snippet-desc">Under BMRDA Jurisdiction</span>
+              </div>
+            </div>
+
+            <!-- Snippet 2: DC Converted -->
+            <div class="hero-snippet-card">
+              <div class="snippet-icon-wrap">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div class="snippet-content">
+                <span class="snippet-badge">CLEAR TITLE</span>
+                <span class="snippet-title">DC Converted</span>
+                <span class="snippet-desc">Yellow Zone • E-Khata</span>
+              </div>
+            </div>
+
+            <!-- Snippet 3: STRR Corridor -->
+            <div class="hero-snippet-card">
+              <div class="snippet-icon-wrap">
+                <i class="fa-solid fa-road"></i>
+              </div>
+              <div class="snippet-content">
+                <span class="snippet-badge">HIGH GROWTH</span>
+                <span class="snippet-title">STRR Corridor</span>
+                <span class="snippet-desc">Near Whitefield Exit</span>
+              </div>
+            </div>
+
+            <!-- Snippet 4: 100% Completed -->
+            <div class="hero-snippet-card">
+              <div class="snippet-icon-wrap">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="snippet-content">
+                <span class="snippet-badge">READY TO BUILD</span>
+                <span class="snippet-title">100% Completed</span>
+                <span class="snippet-desc">Roads, Water &amp; Power</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Animated Scroll-Down Indicator -->
+    <a href="#overview-highlights" class="hero-scroll-indicator hero-scroll-light" aria-label="Scroll to explore">
+      <span class="scroll-pill">SCROLL TO EXPLORE</span>
+      <div class="scroll-arrow-box">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </a>
   </section>
 
   <!-- ==========================================================================
        4. KEY PROJECT METRICS STRIP
        ========================================================================== -->
-  <section class="metrics-section">
+  <section class="metrics-section" id="overview-highlights">
     <div class="container">
       <div class="metrics-grid">
         <div class="metric-item">
@@ -825,6 +924,7 @@
               <th>Plot Type</th>
               <th>Dimensions</th>
               <th>Total Plot Area</th>
+              <th>Starting Price</th>
               <th>Facing Options</th>
               <th>Status</th>
               <th>Action</th>
@@ -835,12 +935,16 @@
               <td><strong>Standard Residential Plot</strong></td>
               <td><span class="gold-text">30 × 40</span></td>
               <td>1,200 sq. ft.</td>
+              <td>
+                <span class="price-tag-gold">₹36.6 Lakhs*</span>
+                <span class="price-tag-sub">₹3,050 / sq. ft.</span>
+              </td>
               <td>East / North Facing</td>
               <td><span class="badge-available">Available</span></td>
               <td>
-                <button class="btn-primary trigger-lead-modal" data-title="Request 30x40 Pricing"
+                <button class="btn-primary trigger-lead-modal" data-title="Request 30x40 Cost Sheet"
                   data-intent="30x40-price">
-                  Get Price Sheet
+                  Get Cost Sheet
                 </button>
               </td>
             </tr>
@@ -848,12 +952,16 @@
               <td><strong>Spacious Residential Plot</strong></td>
               <td><span class="gold-text">30 × 45</span></td>
               <td>1,350 sq. ft.</td>
+              <td>
+                <span class="price-tag-gold">₹41.1 Lakhs*</span>
+                <span class="price-tag-sub">₹3,050 / sq. ft.</span>
+              </td>
               <td>East / North Facing</td>
               <td><span class="badge-available">Available</span></td>
               <td>
-                <button class="btn-primary trigger-lead-modal" data-title="Request 30x45 Pricing"
+                <button class="btn-primary trigger-lead-modal" data-title="Request 30x45 Cost Sheet"
                   data-intent="30x45-price">
-                  Get Price Sheet
+                  Get Cost Sheet
                 </button>
               </td>
             </tr>
@@ -861,12 +969,16 @@
               <td><strong>Large Family Plot</strong></td>
               <td><span class="gold-text">30 × 50</span></td>
               <td>1,500 sq. ft.</td>
+              <td>
+                <span class="price-tag-gold">₹45.75 Lakhs*</span>
+                <span class="price-tag-sub">₹3,050 / sq. ft.</span>
+              </td>
               <td>East / North Facing</td>
               <td><span class="badge-available">Available</span></td>
               <td>
-                <button class="btn-primary trigger-lead-modal" data-title="Request 30x50 Pricing"
+                <button class="btn-primary trigger-lead-modal" data-title="Request 30x50 Cost Sheet"
                   data-intent="30x50-price">
-                  Get Price Sheet
+                  Get Cost Sheet
                 </button>
               </td>
             </tr>
@@ -874,6 +986,10 @@
               <td><strong>Premium Corner Plots</strong></td>
               <td><span class="gold-text">Custom Sizes</span></td>
               <td>1,500+ sq. ft.</td>
+              <td>
+                <span class="price-tag-gold">On Request</span>
+                <span class="price-tag-sub">Premium Location</span>
+              </td>
               <td>Dual Road Frontage</td>
               <td><span class="badge-limited">Fast Selling</span></td>
               <td>
@@ -1157,6 +1273,95 @@
   </section>
 
   <!-- ==========================================================================
+       11.5. CUSTOMER TESTIMONIALS & REVIEWS (SOCIAL PROOF)
+       ========================================================================== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="eyebrow"><i class="fa-solid fa-star gold-text"></i> BUYER REVIEWS & SOCIAL PROOF</div>
+        <h2 class="section-title">What Our Plot Owners Say</h2>
+        <p class="section-subtitle">
+          Real stories from homebuyers and investors who chose Aloka Green County for their future villa home.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Review 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Finding clear-title land near Whitefield without legal ambiguities was tough until we visited Aloka Green County. The 9M asphalt roads, underground cables, and compound wall were already 100% finished on ground. SBI loan was sanctioned within 10 days."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RS</div>
+            <div class="testimonial-info">
+              <strong>Rajesh & Sunita Sharma</strong>
+              <span>VP Technology, ITPL Whitefield • 30×40 Plot Owner</span>
+              <span class="testimonial-badge"><i class="fa-solid fa-circle-check"></i> Verified Plot Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The STRR expressway connectivity is a game changer. From Arsanahalli, driving to our Whitefield office takes just 35-40 minutes. We booked a 30×50 corner plot and plan to begin construction this year. Transparent documentation and no hidden charges."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PK</div>
+            <div class="testimonial-info">
+              <strong>Priya & Karthik Rao</strong>
+              <span>Senior Design Architect, Bengaluru • 30×50 Corner Plot</span>
+              <span class="testimonial-badge"><i class="fa-solid fa-circle-check"></i> Verified Plot Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "At ₹3,050/sq.ft, this is one of the most value-driven plotted investments in East Bengaluru right now. The Aloka Developers team arranged our weekend pickup from Hope Farm and walked us through every single municipal and revenue approval docket."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AS</div>
+            <div class="testimonial-info">
+              <strong>Anand Subramanian</strong>
+              <span>Finance Director, MNC • 30×45 Plot Owner</span>
+              <span class="testimonial-badge"><i class="fa-solid fa-circle-check"></i> Verified Plot Owner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        12. FREQUENTLY ASKED QUESTIONS (FAQ)
        ========================================================================== -->
   <section class="faq-section" id="faq">
@@ -1226,6 +1431,75 @@
   </section>
 
   <!-- ==========================================================================
+       12.5. COMPLIMENTARY WEEKEND CAB PICKUP HUBS (RULE 6.5)
+       ========================================================================== -->
+  <section class="pickup-section" id="pickup-hubs">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="eyebrow"><i class="fa-solid fa-car-side" style="color:var(--color-2); margin-right:6px;"></i> COMPLIMENTARY WEEKEND SITE VISITS</div>
+        <h2 class="section-title">Free Cab Pickup from 6 Convenient Locations</h2>
+        <p class="section-subtitle">We pick you up. You just show up. No navigation stress or weekend traffic worries.</p>
+      </div>
+
+      <div class="pickup-grid">
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="pickup-card-content">
+            <h4>Hope Farm</h4>
+            <p>Whitefield Central Junction Hub</p>
+          </div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-train-subway"></i></div>
+          <div class="pickup-card-content">
+            <h4>Kadugodi Metro</h4>
+            <p>Purple Line Metro Station Terminal</p>
+          </div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-road"></i></div>
+          <div class="pickup-card-content">
+            <h4>Hoskote Toll Gate</h4>
+            <p>Old Madras Road (NH-75) Intersection</p>
+          </div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-gopuram"></i></div>
+          <div class="pickup-card-content">
+            <h4>Chikka Tirupathi</h4>
+            <p>Chikka Tirupathi Temple Circle Hub</p>
+          </div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pickup-card-content">
+            <h4>Sarjapur Police Station</h4>
+            <p>Sarjapur Main Road Junction</p>
+          </div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="pickup-card-icon"><i class="fa-solid fa-building"></i></div>
+          <div class="pickup-card-content">
+            <h4>Kammasandra Office</h4>
+            <p>Aloka Developers Corporate Office</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 36px;">
+        <button class="btn-primary trigger-lead-modal" data-title="Book Free Site Visit + Pickup" data-intent="site-visit" style="padding: 14px 32px; font-size: 15px;">
+          <i class="fa-solid fa-taxi"></i> BOOK FREE SITE VISIT WITH PICKUP
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        13. CLOSING CALL-TO-ACTION BANNER
        ========================================================================== -->
   <section class="cta-banner-section">
@@ -1275,8 +1549,10 @@
             <li><a href="#amenities">16+ Amenities</a></li>
             <li><a href="#connectivity">Location Orbit</a></li>
             <li><a href="#location-map">Exact Google Map</a></li>
-            <li><a href="#plot-sizes">Plot Sizes</a></li>
+            <li><a href="#plot-sizes">Plot Sizes & Pricing</a></li>
             <li><a href="#legal-shield">Legal Shield</a></li>
+            <li><a href="#testimonials">Buyer Reviews</a></li>
+            <li><a href="#pickup-hubs">Free Cab Pickup</a></li>
           </ul>
         </div>
 
@@ -1309,8 +1585,9 @@
   <!-- ==========================================================================
        15. POP-UP LEAD CAPTURE MODAL
        ========================================================================== -->
-  <div class="modal-backdrop" id="lead-modal" aria-hidden="true">
+  <div class="modal-backdrop" id="lead-modal" aria-hidden="true" onclick="if(event.target===this)closeLeadModal()">
     <div class="modal-card modal-card-with-img">
+      <!-- Universal High-Visibility Floating Close Button -->
       <button class="modal-close-btn" onclick="closeLeadModal()" aria-label="Close modal">
         <i class="fa-solid fa-xmark"></i>
       </button>
@@ -1359,35 +1636,17 @@
                 pattern="[0-9+ ]{10,15}">
             </div>
 
+            <!-- Optional Email Address Field -->
             <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="Enter your email" name="email">
+              <label class="form-label">Email Address <span class="form-optional-tag">(Optional)</span></label>
+              <input type="email" class="form-input" placeholder="name@example.com" name="email">
             </div>
 
-
-            <!-- Anti-Spam Security Verification -->
-            <div class="form-group">
-              <label class="form-label">Security Verification*</label>
-              <div class="captcha-box">
-                <div class="captcha-badge" id="modal-captcha-badge">
-                  <i class="fa-solid fa-shield-halved" style="color:var(--color-2); margin-right:6px;"></i>
-                  <span id="modal-captcha-question">5 + 3 = ?</span>
-                </div>
-                <button type="button" class="captcha-reload-btn" onclick="initCaptcha()" title="Change question" aria-label="Refresh Captcha">
-                  <i class="fa-solid fa-rotate-right"></i>
-                </button>
-                <input type="number" class="form-input captcha-input" id="modal-captcha-input" placeholder="Your Answer" required min="0" max="99">
-              </div>
-              <div class="captcha-alert" id="modal-captcha-alert" style="display:none;">
-                <i class="fa-solid fa-circle-exclamation"></i> Incorrect answer. Please solve the calculation to proceed.
-              </div>
-            </div>
-
-            <!-- Hidden Honeypot to Trap Automated Spambots -->
+            <!-- Hidden Honeypot to Trap Automated Spambots (Zero-Friction Protection) -->
             <input type="text" name="b_trap_security" class="honeypot-input" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
 
-            <button type="submit" class="form-submit-btn">
-              <i class="fa-solid fa-download"></i> SUBMIT & ACCESS PDF NOW
+            <button type="submit" class="form-submit-btn" style="margin-top: 12px;">
+              <i class="fa-solid fa-arrow-right"></i> GET INSTANT ACCESS & PRICING SHEET
             </button>
           </form>
         </div>
@@ -1444,7 +1703,7 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js?v=3.3"></script>
+  <script src="script.js?v=3.6"></script>
 </body>
 
 </html>
