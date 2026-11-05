@@ -456,6 +456,9 @@
     </div>
   </footer>
 
+  <!-- UTM Tracker & Lead Engine -->
+  <script src="app.js?v=1.0"></script>
+
   <!-- Dynamic Parameter Parser Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -482,10 +485,13 @@
         subtitle.innerHTML = `Your request for <strong>${details.join(' • ')}</strong> at <strong style="color:#FFF;">Aloka Green County</strong> has been confirmed.`;
       }
 
-      // Update WhatsApp link dynamically with name
-      if (name) {
-        const waBtn = document.getElementById('whatsapp-direct-btn');
-        const customMsg = encodeURIComponent(`Hi Aloka Developers, my name is ${name}. I just submitted an enquiry on the website for Aloka Green County. Please share current available plot numbers and price sheet.`);
+      // Update WhatsApp link dynamically with name & stored UTM ref
+      const waBtn = document.getElementById('whatsapp-direct-btn');
+      if (waBtn) {
+        const utms = typeof getStoredUTMs === 'function' ? getStoredUTMs() : {};
+        const refTag = typeof buildWhatsAppRefTag === 'function' ? buildWhatsAppRefTag(utms) : '';
+        const greetingName = name || 'Customer';
+        const customMsg = encodeURIComponent(`Hi Aloka Developers, my name is ${greetingName}. I just submitted an enquiry on the website for Aloka Green County. Please share current available plot numbers and price sheet.${refTag}`);
         waBtn.href = `https://wa.me/919187969708?text=${customMsg}`;
       }
     });

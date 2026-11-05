@@ -1620,13 +1620,17 @@
               PDF download.</p>
           </div>
 
-          <form id="modal-lead-form" onsubmit="handleLeadSubmit(event, 'Modal Form')">
+          <form id="modal-lead-form" onsubmit="handleFormSubmit(event, document.getElementById('modal-intent-input')?.value === 'site-visit' ? 'Site Visit Booking' : (document.getElementById('modal-dynamic-title')?.textContent || 'Website Enquiry'))">
+            <input type="hidden" id="modal-enquiry-type" name="enquiry_type" value="Brochure Request">
+            <input type="hidden" id="modal-plotsize-input" name="plotSize" value="Residential Plot">
+            <input type="hidden" id="modal-visitdate-input" name="visitDate" value="">
+            <input type="hidden" id="modal-pickup-input" name="pickupLocation" value="">
             <input type="hidden" id="modal-intent-input" name="intent" value="brochure">
             <input type="hidden" id="modal-file-input" name="file_path" value="">
 
             <div class="form-group">
               <label class="form-label">Full Name*</label>
-              <input type="text" class="form-input" placeholder="Enter your full name" required name="name">
+              <input type="text" class="form-input" id="modal-fullname-input" placeholder="Enter your full name" required name="fullName">
             </div>
 
             <div class="form-group">
@@ -1640,11 +1644,41 @@
               <label class="form-label">Email Address <span class="form-optional-tag">(Optional)</span></label>
               <input type="email" class="form-input" placeholder="name@example.com" name="email">
             </div>
+            <!-- Dynamic Site Visit Booking Fields -->
+            <div id="modal-sitevisit-fields" style="display:none;">
+              <div class="form-group">
+                <label class="form-label">Preferred Plot Size</label>
+                <select class="form-input" id="modal-plotsize-select" onchange="document.getElementById('modal-plotsize-input').value = this.value">
+                  <option value="Residential Plot" selected>Residential Plot (Any Size)</option>
+                  <option value="30x40 (1,200 sq.ft)">30x40 (1,200 sq.ft) — ₹36.6 Lakhs</option>
+                  <option value="30x50 (1,500 sq.ft)">30x50 (1,500 sq.ft) — ₹45.75 Lakhs</option>
+                  <option value="Corner / Odd Plot">Corner / Odd Plot (Premium)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Preferred Visit Date</label>
+                <input type="date" class="form-input" id="modal-date-picker" onchange="document.getElementById('modal-visitdate-input').value = this.value">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Free Cab Pickup Location</label>
+                <select class="form-input" id="modal-pickup-select" onchange="document.getElementById('modal-pickup-input').value = this.value">
+                  <option value="" selected>Self-Drive / No Pickup Needed</option>
+                  <option value="Hope Farm Junction">Hope Farm Junction, Whitefield</option>
+                  <option value="Kadugodi Tree Park Metro">Kadugodi Tree Park Metro Station</option>
+                  <option value="ITPL Main Gate">ITPL Main Gate</option>
+                  <option value="Hoskote Toll Gate">Hoskote Toll Gate</option>
+                  <option value="Devanagonthi Railway Station">Devanagonthi Railway Station</option>
+                  <option value="Budigere Cross">Budigere Cross / Old Madras Rd</option>
+                </select>
+              </div>
+            </div>
 
             <!-- Hidden Honeypot to Trap Automated Spambots (Zero-Friction Protection) -->
             <input type="text" name="b_trap_security" class="honeypot-input" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
 
-            <button type="submit" class="form-submit-btn" style="margin-top: 12px;">
+            <button type="submit" id="modal-submit-btn" class="form-submit-btn" style="margin-top: 12px;">
               <i class="fa-solid fa-arrow-right"></i> GET INSTANT ACCESS & PRICING SHEET
             </button>
           </form>
@@ -1702,7 +1736,8 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js?v=3.6"></script>
+  <script src="app.js?v=1.0"></script>
+  <script src="script.js?v=3.7"></script>
 </body>
 
 </html>
