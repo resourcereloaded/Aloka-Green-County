@@ -175,15 +175,30 @@ window.handleFormSubmit = function(event, formName) {
     submitted_at: new Date().toISOString()
   };
 
-  // 1. Send lead instantly to n8n webhook (background async POST)
+  // 1. Send lead instantly to Google Sheet Sync Webhook (auto-appends to 1KSPI2Jp48zhpCJf2MKTGtOq9AYsAkNtg3hE15v-PeN4)
+  fetch('https://n8n-bcko.srv1763383.hstgr.cloud/webhook/website-property-enquiry', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ...payload,
+      interest: effectiveFormName === 'Site Visit Booking' ? 'Site Visit Booking' : (plotSize !== 'Residential Plot' ? plotSize : effectiveFormName),
+      submitted: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })
+    })
+  }).then(res => {
+    console.log('Lead successfully appended to Google Sheet (WEB Property Enquiries).');
+  }).catch(err => {
+    console.error('Google Sheet webhook sync notice:', err);
+  });
+
+  // 2. Also send to Master Ingestion Engine
   fetch('https://n8n-bcko.srv1763383.hstgr.cloud/webhook/website-leads', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   }).then(res => {
-    console.log('Lead successfully synced to n8n master ingestion engine.');
+    console.log('Lead successfully synced to master aggregator.');
   }).catch(err => {
-    console.error('Lead webhook error:', err);
+    console.error('Master lead webhook notice:', err);
   });
 
   // Secondary backup: Apps Script Google Sheet & Laravel API
